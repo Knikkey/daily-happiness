@@ -1,0 +1,41 @@
+:root {
+  //shadows
+  --box-shadow: 1px 2px 8px #999;
+  --box-shadow--light: 1px 2px 8px #bbb;
+  --transparent: rgba(0, 0, 0, 0);
+
+  //borders
+  --border-radius--base: 15px;
+  --border-radius--light: 8px;
+
+  //text
+  --small-font-size: 1.2rem;
+  --low-mid-font-size: 1.6rem;
+  --mid-font-size: 1.8rem;
+  --high-mid-font-size: 2rem;
+  --large-font-size: 2.4rem;
+  --xl-font-size: 2.8rem;
+
+  //titles
+  --subtitle-font-size: 3.2rem;
+  --title-font-size: 4.8rem;
+
+  //colors
+}
+
+//mixins
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-col--center {
+  @include flex-col;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin subtitle {
+  font-size: 3.2rem;
+  margin: 0;
+}

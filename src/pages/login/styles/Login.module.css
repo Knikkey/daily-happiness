@@ -1,0 +1,83 @@
+:root {
+  --box-shadow: 1px 2px 8px #999;
+  --box-shadow--light: 1px 2px 8px #bbb;
+  --transparent: rgba(0, 0, 0, 0);
+  --border-radius--base: 15px;
+  --border-radius--light: 8px;
+  --small-font-size: 1.2rem;
+  --low-mid-font-size: 1.6rem;
+  --mid-font-size: 1.8rem;
+  --high-mid-font-size: 2rem;
+  --large-font-size: 2.4rem;
+  --xl-font-size: 2.8rem;
+  --subtitle-font-size: 3.2rem;
+  --title-font-size: 4.8rem;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  gap: 0.6rem;
+  padding: 1rem 3rem;
+  border-radius: var(--border-radius--base);
+  box-shadow: var(--box-shadow--light);
+  font-size: var(--small-font-size);
+}
+.login-container .subtitle {
+  font-size: 3.2rem;
+  margin: 0;
+}
+.login-container form {
+  display: flex;
+  flex-direction: column;
+}
+.login-container form .checkbox {
+  margin-top: 0.6rem;
+}
+.login-container form .checkbox input {
+  width: auto;
+}
+.login-container form .error {
+  font-size: var(--small-font-size);
+  color: red;
+  width: 25ch;
+}
+.login-container form label {
+  margin: 0.2rem;
+}
+.login-container form input {
+  width: 20em;
+  padding: 0.2rem;
+}
+.login-container form button {
+  align-self: center;
+  margin-top: 0.6rem;
+  cursor: pointer;
+  border: 1px solid #111;
+  border-radius: var(--border-radius--light);
+  padding: 0.4rem 0.8rem;
+  box-shadow: var(--box-shadow--light);
+  background-color: inherit;
+  font-size: inherit;
+}
+
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.signup-container button {
+  border: none;
+  box-shadow: none;
+  color: blue;
+  margin: 0;
+  background-color: inherit;
+  font-size: var(--small-font-size);
+}
+.signup-container button:hover {
+  color: #111;
+}/*# sourceMappingURL=Login.module.css.map */
