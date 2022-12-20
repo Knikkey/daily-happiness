@@ -1,0 +1,71 @@
+@import "../../vars";
+
+.login-container {
+  @include flex-col--center;
+  width: fit-content;
+  gap: 0.6rem;
+
+  padding: 1rem 3rem;
+  border-radius: var(--border-radius--base);
+  box-shadow: var(--box-shadow--light);
+  font-size: var(--small-font-size);
+
+  .subtitle {
+    @include subtitle;
+  }
+
+  form {
+    @include flex-col;
+
+    .checkbox {
+      margin-top: 0.6rem;
+      input {
+        width: auto;
+      }
+    }
+
+    .error {
+      font-size: var(--small-font-size);
+      color: red;
+      width: 25ch;
+    }
+
+    label {
+      margin: 0.2rem;
+    }
+
+    input {
+      width: 20em;
+      padding: 0.2rem;
+    }
+
+    button {
+      align-self: center;
+      margin-top: 0.6rem;
+      cursor: pointer;
+      border: 1px solid #111;
+      border-radius: var(--border-radius--light);
+      padding: 0.4rem 0.8rem;
+      box-shadow: var(--box-shadow--light);
+      background-color: inherit;
+      font-size: inherit;
+    }
+  }
+}
+
+.signup-container {
+  @include flex-col--center;
+
+  button {
+    border: none;
+    box-shadow: none;
+    color: blue;
+    margin: 0;
+    background-color: inherit;
+    font-size: var(--small-font-size);
+
+    &:hover {
+      color: #111;
+    }
+  }
+}
