@@ -55,7 +55,6 @@
 .login-container form button {
   align-self: center;
   margin-top: 0.6rem;
-  cursor: pointer;
   border: 1px solid #111;
   border-radius: var(--border-radius--light);
   padding: 0.4rem 0.8rem;
