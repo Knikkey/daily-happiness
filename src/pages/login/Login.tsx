@@ -1,18 +1,23 @@
+//handles both login and signup based on state
+
 import { useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
+import { useLogin } from "../../hooks/useLogin";
 
 import styles from "./styles/Login.module.css";
 
 export default function Login() {
-  const [showPassword, setShowPassword] = useState(false);
   const [signupPage, setSignupPage] = useState(false);
   const [email, setEmail] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
-  const { error, signup } = useSignup();
+
+  const { signupError, signup } = useSignup();
+  const { loginError, login } = useLogin();
 
   const submitHandler = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    signupPage ? signup(email, password) : "";
+    signupPage ? signup(email, password) : login(email, password);
   };
 
   return (
@@ -46,7 +51,8 @@ export default function Login() {
 
         <button type="submit">{!signupPage ? "Login" : "Sign up"}</button>
 
-        {error && <p className={styles.error}>{error}</p>}
+        {signupError && <p className={styles.error}>{signupError}</p>}
+        {loginError && <p className={styles.error}>{loginError}</p>}
       </form>
       {!signupPage && (
         <div className={styles["signup-container"]}>
