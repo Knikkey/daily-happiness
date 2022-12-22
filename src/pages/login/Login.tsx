@@ -9,15 +9,18 @@ import styles from "./styles/Login.module.css";
 export default function Login() {
   const [signupPage, setSignupPage] = useState(false);
   const [email, setEmail] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [displayName, setDisplayName] = useState("");
 
+  //hooks
   const { signupError, signup } = useSignup();
   const { loginError, login } = useLogin();
 
-  const submitHandler = (e: React.SyntheticEvent) => {
+  //handlers
+  const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
-    signupPage ? signup(email, password) : login(email, password);
+    signupPage ? signup(email, password, displayName) : login(email, password);
   };
 
   return (
@@ -25,13 +28,24 @@ export default function Login() {
       <p className={styles.subtitle}>{signupPage ? "Sign up" : "Login"}</p>
 
       <form onSubmit={submitHandler}>
-        <label htmlFor="username">Email:</label>
+        <label htmlFor="email">Email:</label>
         <input
           id="email"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setEmail(e.target.value)
           }
         />
+        {signupPage && (
+          <>
+            <label htmlFor="displayName">Display Name:</label>
+            <input
+              id="displayName"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setDisplayName(e.target.value)
+              }
+            />
+          </>
+        )}
         <label htmlFor="password">Password:</label>
         <input
           id="password"
