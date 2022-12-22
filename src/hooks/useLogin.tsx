@@ -13,11 +13,10 @@ export function useLogin() {
     try {
       const response = await signInWithEmailAndPassword(auth, email, password);
       dispatch({ type: "LOGIN", payload: response.user });
-      console.log("logged in!", response.user);
     } catch (err: any) {
       setLoginError(err.message);
     }
   };
 
-  return { loginError, login };
+  return { loginError, setLoginError, login };
 }

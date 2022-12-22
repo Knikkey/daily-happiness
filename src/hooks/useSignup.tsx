@@ -22,11 +22,10 @@ export function useSignup() {
       );
       await updateProfile(response.user, { displayName });
       dispatch({ type: "LOGIN", payload: response.user });
-      console.log("signed up!", response.user);
     } catch (err: any) {
       setSignupError(err.message);
     }
   };
 
-  return { signupError, signup };
+  return { signupError, setSignupError, signup };
 }
