@@ -59,8 +59,17 @@
   border-radius: var(--border-radius--light);
   padding: 0.4rem 0.8rem;
   box-shadow: var(--box-shadow--light);
-  background-color: inherit;
-  font-size: inherit;
+  background-color: lightblue;
+}
+.login-container form button:hover {
+  background-color: #eee;
+}
+.login-container form button:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+.login-container form .guest {
+  background-color: lightgreen;
 }
 
 .signup-container {
@@ -74,7 +83,6 @@
   box-shadow: none;
   color: blue;
   margin: 0;
-  background-color: inherit;
   font-size: var(--small-font-size);
 }
 .signup-container button:hover {
