@@ -7,6 +7,7 @@ import { useLogin } from "../../hooks/useLogin";
 import styles from "./styles/Login.module.css";
 
 export default function Login() {
+  const [guest, setGuest] = useState(false);
   const [signupPage, setSignupPage] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,7 +17,7 @@ export default function Login() {
 
   //hooks
   const { signupError, setSignupError, signup } = useSignup();
-  const { loginError, setLoginError, login } = useLogin();
+  const { loginError, setLoginError, login, guestLogin } = useLogin();
 
   //handlers
   const submitHandler = async (e: React.FormEvent) => {
@@ -24,9 +25,9 @@ export default function Login() {
     setSignupError(null);
     setLoginError(null);
     setIsPending(true);
-    signupPage
-      ? await signup(email, password, displayName)
-      : await login(email, password);
+    if (signupPage) await signup(email, password, displayName);
+    if (guest) await guestLogin();
+    else await login(email, password);
     setIsPending(false);
   };
 
@@ -69,6 +70,8 @@ export default function Login() {
           />
           <label htmlFor="passwordCheckBox">Show password</label>
         </div>
+
+        {/* **********************LOGIN BUTTONS********************** */}
         {signupPage && (
           <button type="submit">
             {isPending ? "Authenticating..." : "Sign up"}
@@ -79,11 +82,16 @@ export default function Login() {
             {isPending ? "Authenticating..." : "Log in"}
           </button>
         )}
+        <button onClick={() => setGuest(true)} className={styles.guest}>
+          Log in as a guest
+        </button>
 
+        {/* **********************ERROR MESSAGES********************** */}
         {signupError && <p className={styles.error}>{signupError}</p>}
         {loginError && <p className={styles.error}>{loginError}</p>}
       </form>
 
+      {/* **********************BLUE BUTTONS********************** */}
       <div className={styles["signup-container"]}>
         {signupPage && (
           <button onClick={() => setSignupPage(false)}>
