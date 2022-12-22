@@ -13,7 +13,6 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [displayName, setDisplayName] = useState("");
   const [isPending, setIsPending] = useState(false);
-  const [error, setError] = useState<any>(null);
 
   //hooks
   const { signupError, setSignupError, signup } = useSignup();

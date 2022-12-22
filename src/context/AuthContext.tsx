@@ -1,9 +1,4 @@
-import React, {
-  createContext,
-  PropsWithChildren,
-  useEffect,
-  useReducer,
-} from "react";
+import { createContext, PropsWithChildren, useEffect, useReducer } from "react";
 
 import { auth } from "../firebase/config";
 import { onAuthStateChanged } from "firebase/auth";
@@ -28,7 +23,7 @@ export const authReducer = (state: object, action: actionType) => {
     case "LOGOUT":
       return { ...state, user: null };
     case "AUTH_IS_READY":
-      return { ...state, authISReady: true, user: action.payload };
+      return { ...state, authIsReady: true, user: action.payload };
 
     default:
       return state;
