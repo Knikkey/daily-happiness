@@ -1,0 +1,81 @@
+@import "../../vars";
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  background-color: #fbaed2;
+
+  .guest-banner {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    text-align: center;
+    font-size: var(--low-mid-font-size);
+    background-color: #eee;
+    margin: 0;
+    padding: 0.5rem;
+
+    button {
+      border: none;
+      border-bottom: 1px blue solid;
+      font-size: inherit;
+      background-color: inherit;
+      color: blue;
+      cursor: pointer;
+      padding: 0;
+      margin: 0;
+
+      &:hover {
+        color: darkblue;
+      }
+    }
+  }
+
+  .avatar-container {
+    position: relative;
+    height: 40%;
+
+    .avatar {
+      height: 100%;
+    }
+
+    .cloud--left,
+    .cloud--right {
+      position: absolute;
+      width: 70%;
+      top: -50%;
+      transition: all 0.5s;
+      cursor: pointer;
+    }
+
+    .cloud--left {
+      left: -55%;
+
+      &:hover {
+        transform: scale(115%);
+      }
+    }
+
+    .cloud--right {
+      right: -55%;
+      transform: rotateY(180deg);
+
+      &:hover {
+        animation: grow 0.5s forwards;
+        transform: rotateY(180deg) scale(115%);
+      }
+    }
+  }
+
+  .logout-btn {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+  }
+}

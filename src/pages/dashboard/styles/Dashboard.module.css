@@ -1,1 +1,84 @@
-/*# sourceMappingURL=Dashboard.module.css.map */
+:root {
+  --box-shadow: 1px 2px 8px #999;
+  --box-shadow--light: 1px 2px 8px #bbb;
+  --transparent: rgba(0, 0, 0, 0);
+  --border-radius--base: 15px;
+  --border-radius--light: 8px;
+  --small-font-size: 1.2rem;
+  --low-mid-font-size: 1.6rem;
+  --mid-font-size: 1.8rem;
+  --high-mid-font-size: 2rem;
+  --large-font-size: 2.4rem;
+  --xl-font-size: 2.8rem;
+  --subtitle-font-size: 3.2rem;
+  --title-font-size: 4.8rem;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  background-color: #fbaed2;
+}
+.dashboard-container .guest-banner {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  text-align: center;
+  font-size: var(--low-mid-font-size);
+  background-color: #eee;
+  margin: 0;
+  padding: 0.5rem;
+}
+.dashboard-container .guest-banner button {
+  border: none;
+  border-bottom: 1px blue solid;
+  font-size: inherit;
+  background-color: inherit;
+  color: blue;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+.dashboard-container .guest-banner button:hover {
+  color: darkblue;
+}
+.dashboard-container .avatar-container {
+  position: relative;
+  height: 40%;
+}
+.dashboard-container .avatar-container .avatar {
+  height: 100%;
+}
+.dashboard-container .avatar-container .cloud--left,
+.dashboard-container .avatar-container .cloud--right {
+  position: absolute;
+  width: 70%;
+  top: -50%;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.dashboard-container .avatar-container .cloud--left {
+  left: -55%;
+}
+.dashboard-container .avatar-container .cloud--left:hover {
+  transform: scale(115%);
+}
+.dashboard-container .avatar-container .cloud--right {
+  right: -55%;
+  transform: rotateY(180deg);
+}
+.dashboard-container .avatar-container .cloud--right:hover {
+  animation: grow 0.5s forwards;
+  transform: rotateY(180deg) scale(115%);
+}
+.dashboard-container .logout-btn {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+}/*# sourceMappingURL=Dashboard.module.css.map */
