@@ -1,14 +1,14 @@
-//handles both login and signup based on state
-
+//handles login and signup based on state
+//handles guest login via boolean prop frpm Dashboard
 import { useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
 import { useLogin } from "../../hooks/useLogin";
 
 import styles from "./styles/Login.module.css";
 
-export default function Login() {
-  const [guest, setGuest] = useState(false);
+export default function Login({ guestSignup }: boolean) {
   const [signupPage, setSignupPage] = useState(false);
+  const [guest, setGuest] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -25,15 +25,19 @@ export default function Login() {
     setSignupError(null);
     setLoginError(null);
     setIsPending(true);
-    if (signupPage) await signup(email, password, displayName);
-    if (guest) await guestLogin();
-    else await login(email, password);
+    if (signupPage || guestSignup) await signup(email, password, displayName);
+    if (guest) {
+      await guestLogin();
+      setSignupPage(true);
+    } else await login(email, password);
     setIsPending(false);
   };
 
   return (
     <div className={styles["login-container"]}>
-      <p className={styles.subtitle}>{signupPage ? "Sign up" : "Login"}</p>
+      <p className={styles.subtitle}>
+        {signupPage || guestSignup ? "Sign up" : "Login"}
+      </p>
 
       <form onSubmit={submitHandler}>
         <label htmlFor="email">Email:</label>
@@ -43,17 +47,18 @@ export default function Login() {
             setEmail(e.target.value)
           }
         />
-        {signupPage && (
-          <>
-            <label htmlFor="displayName">Display Name:</label>
-            <input
-              id="displayName"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setDisplayName(e.target.value)
-              }
-            />
-          </>
-        )}
+        {signupPage ||
+          (guestSignup && (
+            <>
+              <label htmlFor="displayName">Display Name:</label>
+              <input
+                id="displayName"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setDisplayName(e.target.value)
+                }
+              />
+            </>
+          ))}
         <label htmlFor="password">Password:</label>
         <input
           id="password"
@@ -72,19 +77,22 @@ export default function Login() {
         </div>
 
         {/* **********************LOGIN BUTTONS********************** */}
-        {signupPage && (
-          <button type="submit">
-            {isPending ? "Authenticating..." : "Sign up"}
-          </button>
-        )}
-        {!signupPage && (
+        {signupPage ||
+          (guestSignup && (
+            <button type="submit">
+              {isPending ? "Authenticating..." : "Sign up"}
+            </button>
+          ))}
+        {!signupPage && !guestSignup && (
           <button type="submit">
             {isPending ? "Authenticating..." : "Log in"}
           </button>
         )}
-        <button onClick={() => setGuest(true)} className={styles.guest}>
-          Log in as a guest
-        </button>
+        {!guestSignup && (
+          <button onClick={() => setGuest(true)} className={styles.guest}>
+            Log in as a guest
+          </button>
+        )}
 
         {/* **********************ERROR MESSAGES********************** */}
         {signupError && <p className={styles.error}>{signupError}</p>}
@@ -93,12 +101,12 @@ export default function Login() {
 
       {/* **********************BLUE BUTTONS********************** */}
       <div className={styles["signup-container"]}>
-        {signupPage && (
+        {signupPage && !guestSignup && (
           <button onClick={() => setSignupPage(false)}>
             Return to login page
           </button>
         )}
-        {!signupPage && (
+        {!signupPage && !guestSignup && (
           <>
             <button onClick={() => setSignupPage(true)}>Sign up</button>
             <button>Forgot username</button>
