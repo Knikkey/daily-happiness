@@ -12,6 +12,8 @@ import InputModal from "../modals/input/InputModal";
 
 export default function Dashboard() {
   const [showSignup, setShowSignup] = useState(false);
+  const [showInput, setShowInput] = useState(false);
+  const [showMemories, setShowMemories] = useState(false);
   const guestSignup = true;
 
   //hooks
@@ -20,6 +22,7 @@ export default function Dashboard() {
 
   return (
     <div className={styles["dashboard-container"]}>
+      {/* ****************GUEST BANNER *****************/}
       {currentUser?.isAnonymous && (
         <>
           <p className={styles["guest-banner"]}>
@@ -30,21 +33,26 @@ export default function Dashboard() {
           {showSignup && <Login guestSignup={guestSignup} />}
         </>
       )}
-      <InputModal />
+      {/* ****************AVATAR *****************/}
       <div className={styles["avatar-container"]}>
         <img
           src={leftCloud}
           alt="thought bubble"
           className={styles["cloud--left"]}
+          onClick={() => setShowInput(true)}
         ></img>
         <img
           src={rightCloud}
           alt="thought bubble"
           className={styles["cloud--right"]}
+          onClick={() => setShowMemories(true)}
         ></img>
         <img className={styles.avatar} src={avatar} alt="smiling avatar" />
       </div>
+      {/* ****************MODALS *****************/}
+      {showInput && <InputModal state={showInput} setState={setShowInput} />}
 
+      {/* ****************LOGOUT *****************/}
       <button className={styles["logout-btn"]} onClick={logout}>
         Log out
       </button>
