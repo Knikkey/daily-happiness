@@ -6,7 +6,11 @@ import { useLogin } from "../../hooks/useLogin";
 
 import styles from "./styles/Login.module.css";
 
-export default function Login({ guestSignup }: boolean) {
+interface Prop {
+  guestSignup?: boolean;
+}
+
+export default function Login({ guestSignup }: Prop) {
   const [signupPage, setSignupPage] = useState(false);
   const [guest, setGuest] = useState(false);
   const [email, setEmail] = useState("");
@@ -43,6 +47,7 @@ export default function Login({ guestSignup }: boolean) {
         <label htmlFor="email">Email:</label>
         <input
           id="email"
+          type="email"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setEmail(e.target.value)
           }
@@ -53,6 +58,7 @@ export default function Login({ guestSignup }: boolean) {
               <label htmlFor="displayName">Display Name:</label>
               <input
                 id="displayName"
+                type="text"
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   setDisplayName(e.target.value)
                 }

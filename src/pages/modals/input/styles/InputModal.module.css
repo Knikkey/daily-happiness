@@ -1,0 +1,37 @@
+:root {
+  --box-shadow: 1px 2px 8px #999;
+  --box-shadow--light: 1px 2px 8px #bbb;
+  --transparent: rgba(0, 0, 0, 0);
+  --border-radius--base: 15px;
+  --border-radius--light: 8px;
+  --small-font-size: 1.2rem;
+  --low-mid-font-size: 1.6rem;
+  --mid-font-size: 1.8rem;
+  --high-mid-font-size: 2rem;
+  --large-font-size: 2.4rem;
+  --xl-font-size: 2.8rem;
+  --subtitle-font-size: 3.2rem;
+  --title-font-size: 4.8rem;
+}
+
+.input-container {
+  background-color: #f5f5f5;
+  border: 1px solid #eeeeee;
+  box-shadow: 1px 1px 0 #dddddd;
+  display: block;
+  font-size: var(--small-font-size);
+  margin: 2% auto;
+  height: 60%;
+  width: 60%;
+  z-index: 2;
+  background-image: -moz-linear-gradient(top, transparent, transparent 49px, #e7eff8 0px), -moz-radial-gradient(4% 50%, circle closest-corner, #f5f5f5, #f5f5f5 39%, transparent 0%), -moz-radial-gradient(3.9% 46%, circle closest-corner, #cccccc, #cccccc 43.5%, transparent 0%);
+  background-image: -webkit-linear-gradient(top, transparent, transparent 49px, #e7eff8 0), -webkit-radial-gradient(4% 50%, circle closest-corner, #f5f5f5, #f5f5f5 39%, transparent 0%), -webkit-radial-gradient(3.9% 46%, circle closest-corner, #cccccc, #cccccc 43.5%, transparent 0%);
+  -webkit-background-size: 100% 50px;
+  background-size: 100% 50px;
+}
+.input-container .input {
+  background-color: transparent;
+  margin-left: 10%;
+  height: 95%;
+  width: 50%;
+}/*# sourceMappingURL=InputModal.module.css.map */
