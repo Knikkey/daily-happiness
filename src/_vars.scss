@@ -24,6 +24,17 @@
 }
 
 //mixins
+@mixin btn-press {
+  &:hover {
+    background-color: #eee;
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+}
+
 @mixin flex-col {
   display: flex;
   flex-direction: column;

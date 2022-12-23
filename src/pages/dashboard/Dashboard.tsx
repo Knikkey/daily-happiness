@@ -50,7 +50,7 @@ export default function Dashboard() {
         <img className={styles.avatar} src={avatar} alt="smiling avatar" />
       </div>
       {/* ****************MODALS *****************/}
-      {showInput && <InputModal state={showInput} setState={setShowInput} />}
+      {showInput && <InputModal setState={setShowInput} />}
 
       {/* ****************LOGOUT *****************/}
       <button className={styles["logout-btn"]} onClick={logout}>

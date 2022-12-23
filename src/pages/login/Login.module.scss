@@ -48,14 +48,7 @@
       box-shadow: var(--box-shadow--light);
       background-color: lightblue;
 
-      &:hover {
-        background-color: #eee;
-      }
-
-      &:active {
-        transform: translateY(1px);
-        box-shadow: none;
-      }
+      @include btn-press;
     }
     .guest {
       background-color: lightgreen;

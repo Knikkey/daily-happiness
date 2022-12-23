@@ -1,4 +1,4 @@
 export interface boolStateProp {
-  state: boolean;
+  state?: boolean;
   setState: React.Dispatch<React.SetStateAction<boolean>>;
 }
