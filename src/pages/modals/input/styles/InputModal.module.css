@@ -82,12 +82,37 @@
   border: white solid 1rem;
   box-shadow: 0 0 0 1px black;
   margin: 0 auto;
-  background-color: #111;
+  background: #111;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-.paper-content .photo-container .photo button {
+.paper-content .photo-container .photo label {
   color: #111;
   border: 1px white;
   border-radius: 10px;
+  box-shadow: 1px 2px 4px #eee;
+  background-color: white;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+.paper-content .photo-container .photo label:hover {
+  background-color: #eee;
+}
+.paper-content .photo-container .photo label:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+.paper-content .photo-container .photo input {
+  display: none;
+}
+.paper-content .photo-container .photo img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.paper-content .photo-container .photo button {
+  position: absolute;
+  top: 90%;
   box-shadow: 1px 2px 4px #eee;
   background-color: white;
   padding: 8px 16px;
