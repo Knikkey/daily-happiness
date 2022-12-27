@@ -14,41 +14,7 @@
   --title-font-size: 4.8rem;
 }
 
-.paper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-  background: #fafafa;
-  border-radius: 10px;
-  box-shadow: var(--box-shadow);
-  overflow: hidden;
-}
-.paper:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 60px;
-  background: radial-gradient(#575450 6px, transparent 7px) repeat-y;
-  background-size: 30px 30px;
-  border-right: 3px solid #d44147;
-}
-.paper-content {
-  position: absolute;
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  align-items: center;
-  justify-content: center;
-  top: 30px;
-  right: 0;
-  bottom: 30px;
-  left: 60px;
-  background: linear-gradient(transparent, transparent 28px, #91d1d3 28px);
-  background-size: 30px 30px;
-}
-.paper-content textarea {
+.text-area {
   width: 100%;
   height: 100%;
   line-height: 30px;
@@ -60,10 +26,11 @@
   font-size: var(--small-font-size);
   z-index: 1;
 }
-.paper-content textarea::-webkit-scrollbar {
+.text-area::-webkit-scrollbar {
   display: none;
 }
-.paper-content .photo-container {
+
+.photo-container {
   width: 100%;
   height: 100%;
   padding: 0.5rem;
@@ -72,7 +39,7 @@
   align-items: center;
   justify-content: center;
 }
-.paper-content .photo-container .photo {
+.photo-container .photo {
   position: relative;
   height: 70%;
   width: 60%;
@@ -84,7 +51,7 @@
   margin: 0 auto;
   background: #111;
 }
-.paper-content .photo-container .photo label {
+.photo-container .photo label {
   color: #111;
   border: 1px white;
   border-radius: 10px;
@@ -93,35 +60,35 @@
   padding: 8px 16px;
   cursor: pointer;
 }
-.paper-content .photo-container .photo label:hover {
+.photo-container .photo label:hover {
   background-color: #eee;
 }
-.paper-content .photo-container .photo label:active {
+.photo-container .photo label:active {
   transform: translateY(1px);
   box-shadow: none;
 }
-.paper-content .photo-container .photo input {
+.photo-container .photo input {
   display: none;
 }
-.paper-content .photo-container .photo img {
+.photo-container .photo img {
   max-width: 100%;
   max-height: 100%;
 }
-.paper-content .photo-container .photo button {
+.photo-container .photo button {
   position: absolute;
   top: 90%;
   box-shadow: 1px 2px 4px #eee;
   background-color: white;
   padding: 8px 16px;
 }
-.paper-content .photo-container .photo button:hover {
+.photo-container .photo button:hover {
   background-color: #eee;
 }
-.paper-content .photo-container .photo button:active {
+.photo-container .photo button:active {
   transform: translateY(1px);
   box-shadow: none;
 }
-.paper-content .photo-container .photo:before, .paper-content .photo-container .photo:after {
+.photo-container .photo:before, .photo-container .photo:after {
   content: "";
   position: absolute;
   height: 1.5rem;
@@ -130,31 +97,30 @@
   opacity: 0.5;
   transform: rotate(-45deg);
 }
-.paper-content .photo-container .photo:after {
+.photo-container .photo:after {
   content: "";
   top: -5%;
   left: -20%;
 }
-.paper-content .photo-container .photo:before {
+.photo-container .photo:before {
   content: "";
   bottom: -5%;
   right: -20%;
 }
-.paper-content .photo-container .submit-btn {
-  margin-top: 1.6rem;
+
+.submit-btn {
+  position: absolute;
+  bottom: 0%;
+  right: 11%;
   background-color: white;
   box-shadow: var(--box-shadow);
   padding: 0.4rem 0.8rem;
   border-radius: 15px;
 }
-.paper-content .photo-container .submit-btn:hover {
+.submit-btn:hover {
   background-color: #eee;
 }
-.paper-content .photo-container .submit-btn:active {
+.submit-btn:active {
   transform: translateY(1px);
   box-shadow: none;
-}
-
-.hide {
-  display: none;
 }/*# sourceMappingURL=InputModal.module.css.map */

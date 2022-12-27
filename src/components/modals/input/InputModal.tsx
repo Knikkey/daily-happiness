@@ -5,6 +5,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import { boolStateProp } from "../../../Interfaces";
 import ModalTemplate from "../modalTemplate/ModalTemplate";
+import PaperBackground from "../paperBackground/PaperBackground";
 
 import styles from "./styles/InputModal.module.css";
 
@@ -105,48 +106,47 @@ export default function InputModal({ setState }: boolStateProp) {
 
   return (
     <ModalTemplate setProp={setState}>
-      <form onSubmit={submitHandler} className={styles.paper}>
-        <div className={styles["paper-content"]}>
-          <textarea
-            autoFocus
-            onChange={(e) => setSubmittedText(e.target.value)}
-          />
-          <div className={styles["photo-container"]}>
-            <div className={styles.photo}>
-              {previewPhoto && (
-                <>
-                  <img src={previewPhoto} alt="picture selected for upload" />
-                  <button
-                    onClick={() => setPreviewPhoto(null)}
-                    disabled={pending}
-                  >
-                    {pending ? "Uploading..." : "Remove photo"}
-                  </button>
-                </>
-              )}
-              {error && <div>An error occured: {error}</div>}
-              {!previewPhoto && !pending && (
-                <>
-                  <label htmlFor="upload">Add a photo</label>
-                  <input
-                    id="upload"
-                    type="file"
-                    accept="image/*"
-                    onChange={photoHandler}
-                  />
-                </>
-              )}
-            </div>
-            <button
-              type="submit"
-              className={styles["submit-btn"]}
-              disabled={pending}
-            >
-              {pending ? "Uploading..." : "Save memory"}
-            </button>
+      <PaperBackground formOrDiv="form" handler={submitHandler}>
+        <textarea
+          className={styles["text-area"]}
+          autoFocus
+          onChange={(e) => setSubmittedText(e.target.value)}
+        />
+        <div className={styles["photo-container"]}>
+          <div className={styles.photo}>
+            {previewPhoto && (
+              <>
+                <img src={previewPhoto} alt="picture selected for upload" />
+                <button
+                  onClick={() => setPreviewPhoto(null)}
+                  disabled={pending}
+                >
+                  {pending ? "Uploading..." : "Remove photo"}
+                </button>
+              </>
+            )}
+            {error && <div>An error occured: {error}</div>}
+            {!previewPhoto && !pending && (
+              <>
+                <label htmlFor="upload">Add a photo</label>
+                <input
+                  id="upload"
+                  type="file"
+                  accept="image/*"
+                  onChange={photoHandler}
+                />
+              </>
+            )}
           </div>
         </div>
-      </form>
+        <button
+          type="submit"
+          className={styles["submit-btn"]}
+          disabled={pending}
+        >
+          {pending ? "Uploading..." : "Save memory"}
+        </button>
+      </PaperBackground>
     </ModalTemplate>
   );
 }
