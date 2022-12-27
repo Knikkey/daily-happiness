@@ -5,7 +5,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import { boolStateProp } from "../../../Interfaces";
 import ModalTemplate from "../modalTemplate/ModalTemplate";
-import PaperBackground from "../paperBackground/PaperBackground";
+import PaperBackground from "../../paperBackground/PaperBackground";
 import PhotoFrame from "../../PhotoFrame/PhotoFrame";
 
 import styles from "./styles/InputModal.module.css";
