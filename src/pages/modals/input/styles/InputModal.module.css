@@ -83,9 +83,6 @@
   box-shadow: 0 0 0 1px black;
   margin: 0 auto;
   background: #111;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 .paper-content .photo-container .photo label {
   color: #111;
@@ -156,4 +153,8 @@
 .paper-content .photo-container .submit-btn:active {
   transform: translateY(1px);
   box-shadow: none;
+}
+
+.hide {
+  display: none;
 }/*# sourceMappingURL=InputModal.module.css.map */

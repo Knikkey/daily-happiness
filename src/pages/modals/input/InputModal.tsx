@@ -1,5 +1,11 @@
-import { useState, useRef } from "react";
-import { database } from "../../../firebase/config";
+import { useState } from "react";
+import {
+  database,
+  storage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
+} from "../../../firebase/config";
 import { collection, addDoc } from "firebase/firestore";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import { boolStateProp } from "../../../Interfaces";
@@ -10,21 +16,58 @@ import styles from "./styles/InputModal.module.css";
 export default function InputModal({ setState }: boolStateProp) {
   const [submittedText, setSubmittedText] = useState("");
   const [submittedPhoto, setSubmittedPhoto] = useState<null | File>(null);
-  const [previewPhoto, setPreviewPhoto] = useState<undefined | string>();
+  const [previewPhoto, setPreviewPhoto] = useState<null | string>(null);
   const { user } = useAuthContext();
-  const photoBackground = useRef<HTMLImageElement>(null);
 
   const photoHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSubmittedPhoto(null);
     if (e.target.files) {
       const upload = e.target.files[0];
+      const fileName = upload.name.split(".")[0];
       const reader = new FileReader();
-
-      reader.onload = () => {
-        setSubmittedPhoto(upload);
-        setPreviewPhoto(reader.result as string);
-      };
       reader.readAsDataURL(upload);
+
+      reader.onload = (e) => {
+        if (e.target) {
+          const temp = new Image();
+          temp.src = e.target.result as string;
+
+          //RESIZE IMAGE
+          temp.onload = (event) => {
+            const target = event.target as HTMLImageElement;
+            const canvas = document.createElement("canvas");
+            const context = canvas.getContext("2d") as CanvasRenderingContext2D;
+            const newWidth = 300;
+            const aspectRatio = newWidth / target.width;
+            const newHeight = target.width * aspectRatio;
+
+            canvas.width = newWidth;
+            canvas.height = newHeight;
+
+            context.drawImage(
+              event.target as HTMLImageElement,
+              0,
+              0,
+              newWidth,
+              newHeight
+            );
+            const compressedUrl = context.canvas.toDataURL("image/jpeg");
+            setPreviewPhoto(compressedUrl);
+
+            //convert to file
+            const data = compressedUrl.split(",")[1];
+
+            const dataStr = window.atob(data);
+            let x = dataStr.length;
+            const dataArr = new Uint8Array(x);
+            while (x--) dataArr[x] = dataStr.charCodeAt(x);
+            let file = new File([dataArr], `${fileName}.jpeg`, {
+              type: "image/jpeg",
+            });
+            setSubmittedPhoto(file);
+            console.log(file);
+          };
+        }
+      };
     }
   };
 
@@ -32,17 +75,29 @@ export default function InputModal({ setState }: boolStateProp) {
     e.preventDefault();
 
     const newDate = new Date();
+    const dayName = newDate.toLocaleDateString("en-us", { weekday: "long" });
     const month = newDate.toLocaleString("default", { month: "long" });
-    const date = `${
-      newDate.getDay
-    }, ${month} ${newDate.getDate()}, ${newDate.getFullYear()}`;
+    const year = newDate.getFullYear();
+    const date = `${dayName}, ${month} ${newDate.getDate()}, ${year}`;
+
+    let photoURL = null;
+
+    //upload photo to storage
+    if (submittedPhoto) {
+      const uploadPath = `photos/${user.uid}/${submittedPhoto.name}`;
+      const photoRef = ref(storage, uploadPath);
+      await uploadBytes(photoRef, submittedPhoto);
+      photoURL = await getDownloadURL(photoRef);
+    }
 
     await addDoc(collection(database, "memories"), {
       memory: submittedText,
       date: date,
       uid: user.uid,
-      photo: submittedPhoto,
+      photo: photoURL,
     });
+
+    setState(false);
   };
 
   return (
@@ -57,12 +112,8 @@ export default function InputModal({ setState }: boolStateProp) {
             <div className={styles.photo}>
               {previewPhoto && (
                 <>
-                  <img
-                    src={previewPhoto}
-                    alt="uploaded picture"
-                    ref={photoBackground}
-                  />
-                  <button onClick={() => setPreviewPhoto(undefined)}>
+                  <img src={previewPhoto} alt="picture selected for upload" />
+                  <button onClick={() => setPreviewPhoto(null)}>
                     Remove photo
                   </button>
                 </>
