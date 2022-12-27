@@ -70,9 +70,6 @@
         box-shadow: 0 0 0 1px black;
         margin: 0 auto;
         background: #111;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
 
         label {
           color: #111;
@@ -140,4 +137,8 @@
       }
     }
   }
+}
+
+.hide {
+  display: none;
 }
