@@ -8,7 +8,7 @@ import avatar from "./avatar.png";
 import Login from "../login/Login";
 
 import styles from "./styles/Dashboard.module.css";
-import InputModal from "../modals/input/InputModal";
+import InputModal from "../../components/modals/input/InputModal";
 
 export default function Dashboard() {
   const [showSignup, setShowSignup] = useState(false);
