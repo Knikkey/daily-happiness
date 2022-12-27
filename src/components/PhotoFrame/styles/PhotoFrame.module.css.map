@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"PhotoFrame.module.css"}
+{"version":3,"sourceRoot":"","sources":["../../../_vars.scss","../PhotoFrame.module.scss"],"names":[],"mappings":"AAAA;EAEE;EACA;EACA;EAGA;EACA;EAGA;EACA;EACA;EACA;EACA;EACA;EAGA;EACA;;;AClBF;EACE;EACA;EACA;EDiCA;EACA;EAKA;EACA;;ACrCA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EAEE;EACA;EACA;EACA;EACA;EACA;EACA;;AAGF;EACE;EACA;EACA;;AAGF;EACE;EACA;EACA;;AAGF;EACE;EACA","file":"PhotoFrame.module.css"}

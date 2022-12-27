@@ -1,4 +1,4 @@
-@import "../../../vars";
+@import "../../vars";
 
 .photo-container {
   width: 100%;
@@ -45,31 +45,5 @@
       max-width: 100%;
       max-height: 100%;
     }
-
-    // label {
-    //   color: #111;
-    //   border: 1px white;
-    //   border-radius: 10px;
-    //   box-shadow: 1px 2px 4px #eee;
-    //   background-color: white;
-    //   padding: 8px 16px;
-    //   cursor: pointer;
-
-    //   @include btn-press;
-    // }
-
-    // input {
-    //   display: none;
-    // }
-
-    // button {
-    //   position: absolute;
-    //   top: 90%;
-    //   box-shadow: 1px 2px 4px #eee;
-    //   background-color: white;
-    //   padding: 8px 16px;
-
-    //   @include btn-press;
-    // }
   }
 }
