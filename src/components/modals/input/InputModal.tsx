@@ -13,6 +13,7 @@ export default function InputModal({ setState }: boolStateProp) {
   const [submittedPhoto, setSubmittedPhoto] = useState<null | File>(null);
   const [previewPhoto, setPreviewPhoto] = useState<null | string>(null);
   const [pending, setPending] = useState(false);
+  const [error, setError] = useState<any>(null);
   const { user } = useAuthContext();
 
   const photoHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -79,23 +80,27 @@ export default function InputModal({ setState }: boolStateProp) {
 
     let photoURL = null;
 
-    //upload photo to storage
-    if (submittedPhoto) {
-      const uploadPath = `photos/${user.uid}/${submittedPhoto.name}`;
-      const photoRef = ref(storage, uploadPath);
-      await uploadBytes(photoRef, submittedPhoto);
-      photoURL = await getDownloadURL(photoRef);
+    try {
+      //upload photo to storage
+      if (submittedPhoto) {
+        const uploadPath = `photos/${user.uid}/${submittedPhoto.name}`;
+        const photoRef = ref(storage, uploadPath);
+        await uploadBytes(photoRef, submittedPhoto);
+        photoURL = await getDownloadURL(photoRef);
+      }
+
+      await addDoc(collection(database, "memories"), {
+        memory: submittedText,
+        date: date,
+        uid: user.uid,
+        photo: photoURL,
+      });
+
+      setState(false);
+      setPending(false);
+    } catch (err: any) {
+      setError(err.messsage);
     }
-
-    await addDoc(collection(database, "memories"), {
-      memory: submittedText,
-      date: date,
-      uid: user.uid,
-      photo: photoURL,
-    });
-
-    setState(false);
-    setPending(false);
   };
 
   return (
@@ -119,6 +124,7 @@ export default function InputModal({ setState }: boolStateProp) {
                   </button>
                 </>
               )}
+              {error && <div>An error occured: {error}</div>}
               {!previewPhoto && !pending && (
                 <>
                   <label htmlFor="upload">Add a photo</label>
