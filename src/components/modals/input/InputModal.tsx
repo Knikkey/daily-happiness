@@ -1,11 +1,6 @@
 import { useState } from "react";
-import {
-  database,
-  storage,
-  ref,
-  uploadBytes,
-  getDownloadURL,
-} from "../../../firebase/config";
+import { database, storage } from "../../../firebase/config";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import { boolStateProp } from "../../../Interfaces";
@@ -17,6 +12,7 @@ export default function InputModal({ setState }: boolStateProp) {
   const [submittedText, setSubmittedText] = useState("");
   const [submittedPhoto, setSubmittedPhoto] = useState<null | File>(null);
   const [previewPhoto, setPreviewPhoto] = useState<null | string>(null);
+  const [pending, setPending] = useState(false);
   const { user } = useAuthContext();
 
   const photoHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,6 +69,7 @@ export default function InputModal({ setState }: boolStateProp) {
 
   const submitHandler = async (e: React.FormEvent) => {
     e.preventDefault();
+    setPending(true);
 
     const newDate = new Date();
     const dayName = newDate.toLocaleDateString("en-us", { weekday: "long" });
@@ -98,6 +95,7 @@ export default function InputModal({ setState }: boolStateProp) {
     });
 
     setState(false);
+    setPending(false);
   };
 
   return (
@@ -113,12 +111,15 @@ export default function InputModal({ setState }: boolStateProp) {
               {previewPhoto && (
                 <>
                   <img src={previewPhoto} alt="picture selected for upload" />
-                  <button onClick={() => setPreviewPhoto(null)}>
-                    Remove photo
+                  <button
+                    onClick={() => setPreviewPhoto(null)}
+                    disabled={pending}
+                  >
+                    {pending ? "Uploading..." : "Remove photo"}
                   </button>
                 </>
               )}
-              {!previewPhoto && (
+              {!previewPhoto && !pending && (
                 <>
                   <label htmlFor="upload">Add a photo</label>
                   <input
@@ -130,8 +131,12 @@ export default function InputModal({ setState }: boolStateProp) {
                 </>
               )}
             </div>
-            <button type="submit" className={styles["submit-btn"]}>
-              Save memory
+            <button
+              type="submit"
+              className={styles["submit-btn"]}
+              disabled={pending}
+            >
+              {pending ? "Uploading..." : "Save memory"}
             </button>
           </div>
         </div>
