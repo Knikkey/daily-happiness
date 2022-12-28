@@ -2,7 +2,7 @@ import styles from "./styles/PaperBackground.module.css";
 
 interface PaperProps {
   formOrDiv: string;
-  handler: (e: React.FormEvent) => Promise<void>;
+  handler?: (e: React.FormEvent) => Promise<void>;
   children: JSX.Element | JSX.Element[];
 }
 

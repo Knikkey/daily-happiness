@@ -9,6 +9,7 @@ import Login from "../login/Login";
 
 import styles from "./styles/Dashboard.module.css";
 import InputModal from "../../components/modals/input/InputModal";
+import Memories from "../../components/modals/memories/Memories";
 
 export default function Dashboard() {
   const [showSignup, setShowSignup] = useState(false);
@@ -30,7 +31,29 @@ export default function Dashboard() {
             <button onClick={() => setShowSignup(true)}>SIGN UP</button> to save
             your data.
           </p>
-          {showSignup && <Login guestSignup={guestSignup} />}
+          {showSignup && (
+            <div className={styles["signup-container"]}>
+              <Login guestSignup={guestSignup} />
+              <button
+                className={styles["close-btn"]}
+                onClick={() => setShowSignup(false)}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          )}
         </>
       )}
       {/* ****************AVATAR *****************/}
@@ -51,6 +74,7 @@ export default function Dashboard() {
       </div>
       {/* ****************MODALS *****************/}
       {showInput && <InputModal setState={setShowInput} />}
+      {showMemories && <Memories setState={setShowMemories} />}
 
       {/* ****************LOGOUT *****************/}
       <button className={styles["logout-btn"]} onClick={logout}>

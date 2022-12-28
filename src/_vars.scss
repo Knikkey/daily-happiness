@@ -35,6 +35,26 @@
   }
 }
 
+@mixin btn--paper {
+  position: absolute;
+  bottom: 5%;
+  right: 50%;
+  transform: translateX(50%);
+  background-color: white;
+  box-shadow: var(--box-shadow);
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+
+  &:hover {
+    background-color: #eee;
+  }
+
+  &:active {
+    transform: translateX(50%) translateY(1px);
+    box-shadow: none;
+  }
+}
+
 @mixin flex-col {
   display: flex;
   flex-direction: column;
