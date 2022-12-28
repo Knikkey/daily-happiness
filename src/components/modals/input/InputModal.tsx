@@ -1,13 +1,15 @@
 import { useState } from "react";
+//firebase
 import { database, storage } from "../../../firebase/config";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
 import { useAuthContext } from "../../../hooks/useAuthContext";
+//components
 import { boolStateProp } from "../../../Interfaces";
 import ModalTemplate from "../modalTemplate/ModalTemplate";
 import PaperBackground from "../../paperBackground/PaperBackground";
 import PhotoFrame from "../../PhotoFrame/PhotoFrame";
-
+//styles
 import styles from "./styles/InputModal.module.css";
 
 export default function InputModal({ setState }: boolStateProp) {
@@ -63,7 +65,6 @@ export default function InputModal({ setState }: boolStateProp) {
               type: "image/jpeg",
             });
             setSubmittedPhoto(file);
-            console.log(file);
           };
         }
       };
@@ -109,7 +110,6 @@ export default function InputModal({ setState }: boolStateProp) {
     <ModalTemplate setProp={setState}>
       <PaperBackground formOrDiv="form" handler={submitHandler}>
         <textarea
-          className={styles["text-area"]}
           autoFocus
           onChange={(e) => setSubmittedText(e.target.value)}
         />
@@ -117,11 +117,7 @@ export default function InputModal({ setState }: boolStateProp) {
           {previewPhoto && (
             <>
               <img src={previewPhoto} alt="picture selected for upload" />
-              <button
-                className={styles.button}
-                onClick={() => setPreviewPhoto(null)}
-                disabled={pending}
-              >
+              <button onClick={() => setPreviewPhoto(null)} disabled={pending}>
                 {pending ? "Uploading..." : "Remove photo"}
               </button>
             </>
@@ -129,11 +125,8 @@ export default function InputModal({ setState }: boolStateProp) {
           {error && <div>An error occured: {error}</div>}
           {!previewPhoto && !pending && (
             <>
-              <label htmlFor="upload" className={styles.label}>
-                Add a photo
-              </label>
+              <label htmlFor="upload">Add a photo</label>
               <input
-                className={styles.input}
                 id="upload"
                 type="file"
                 accept="image/*"
@@ -142,14 +135,10 @@ export default function InputModal({ setState }: boolStateProp) {
             </>
           )}
         </PhotoFrame>
-        <button
-          type="submit"
-          className={styles["submit-btn"]}
-          disabled={pending}
-        >
-          {pending ? "Uploading..." : "Save memory"}
-        </button>
       </PaperBackground>
+      <button type="submit" className={styles["submit-btn"]} disabled={pending}>
+        {pending ? "Uploading..." : "Save memory"}
+      </button>
     </ModalTemplate>
   );
 }

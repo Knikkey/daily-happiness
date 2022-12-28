@@ -29,10 +29,11 @@ export default function Login({ guestSignup }: Prop) {
     setSignupError(null);
     setLoginError(null);
     setIsPending(true);
-    if (signupPage || guestSignup) await signup(email, password, displayName);
+    if (signupPage || guestSignup) {
+      await signup(email, password, displayName);
+    }
     if (guest) {
       await guestLogin();
-      setSignupPage(true);
     } else await login(email, password);
     setIsPending(false);
   };
@@ -52,19 +53,30 @@ export default function Login({ guestSignup }: Prop) {
             setEmail(e.target.value)
           }
         />
-        {signupPage ||
-          (guestSignup && (
-            <>
-              <label htmlFor="displayName">Display Name:</label>
-              <input
-                id="displayName"
-                type="text"
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setDisplayName(e.target.value)
-                }
-              />
-            </>
-          ))}
+        {signupPage && (
+          <>
+            <label htmlFor="displayName">Display Name:</label>
+            <input
+              id="displayName"
+              type="text"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setDisplayName(e.target.value)
+              }
+            />
+          </>
+        )}
+        {guestSignup && (
+          <>
+            <label htmlFor="displayName">Display Name:</label>
+            <input
+              id="displayName"
+              type="text"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setDisplayName(e.target.value)
+              }
+            />
+          </>
+        )}
         <label htmlFor="password">Password:</label>
         <input
           id="password"
@@ -83,12 +95,16 @@ export default function Login({ guestSignup }: Prop) {
         </div>
 
         {/* **********************LOGIN BUTTONS********************** */}
-        {signupPage ||
-          (guestSignup && (
-            <button type="submit">
-              {isPending ? "Authenticating..." : "Sign up"}
-            </button>
-          ))}
+        {signupPage && (
+          <button type="submit">
+            {isPending ? "Authenticating..." : "Sign up"}
+          </button>
+        )}
+        {guestSignup && (
+          <button type="submit">
+            {isPending ? "Authenticating..." : "Sign up"}
+          </button>
+        )}
         {!signupPage && !guestSignup && (
           <button type="submit">
             {isPending ? "Authenticating..." : "Log in"}
