@@ -30,10 +30,11 @@
   left: 0%;
   width: 100%;
   text-align: center;
-  font-size: var(--low-mid-font-size);
+  font-size: 1.4rem;
   background-color: #eee;
   margin: 0;
   padding: 0.5rem;
+  z-index: 2;
 }
 .dashboard-container .guest-banner button {
   border: none;
@@ -107,4 +108,25 @@
   position: fixed;
   bottom: 5%;
   right: 5%;
+  background-color: white;
+  box-shadow: var(--box-shadow);
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+}
+.dashboard-container .logout-btn:hover {
+  background-color: #eee;
+}
+.dashboard-container .logout-btn:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+.dashboard-container .sound-btn {
+  position: fixed;
+  bottom: 12%;
+  right: 6%;
+  border: none;
+}
+.dashboard-container .sound-btn svg {
+  height: 30px;
+  width: 30px;
 }/*# sourceMappingURL=Dashboard.module.css.map */
