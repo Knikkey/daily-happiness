@@ -103,6 +103,7 @@ export default function InputModal({ setState }: boolStateProp) {
       setPending(false);
     } catch (err: any) {
       setError(err.messsage);
+      console.log(err.messsage);
     }
   };
 
@@ -135,10 +136,14 @@ export default function InputModal({ setState }: boolStateProp) {
             </>
           )}
         </PhotoFrame>
+        <button
+          type="submit"
+          className={styles["submit-btn"]}
+          disabled={pending}
+        >
+          {pending ? "Uploading..." : "Save memory"}
+        </button>
       </PaperBackground>
-      <button type="submit" className={styles["submit-btn"]} disabled={pending}>
-        {pending ? "Uploading..." : "Save memory"}
-      </button>
     </ModalTemplate>
   );
 }

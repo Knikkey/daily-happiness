@@ -36,7 +36,6 @@ export default function Memories({ setState }: boolStateProp) {
             memoriesArr.push({ id: doc.id, ...doc.data() });
         });
         setMemories(memoriesArr);
-        console.log(memoriesArr);
       } catch (err: any) {
         setError(err.message);
         console.log(err.message);
@@ -50,9 +49,9 @@ export default function Memories({ setState }: boolStateProp) {
   const randomMemory = () => {
     if (memories) {
       const randomNum = Math.floor(Math.random() * memories.length);
-      console.log(randomNum);
-      setCurrentMemory(memories[randomNum]);
-      console.log(memories[randomNum]);
+      memories[randomNum] === currentMemory
+        ? randomMemory()
+        : setCurrentMemory(memories[randomNum]);
     }
   };
 
@@ -62,7 +61,8 @@ export default function Memories({ setState }: boolStateProp) {
         <>
           {!currentMemory && (
             <p>
-              Looks like you haven't recorded any memories yet. Go record one :)
+              Looks like you haven't recorded any memories yet. Go record one!
+              :)
             </p>
           )}
           {currentMemory && <p>{currentMemory.memory}</p>}
