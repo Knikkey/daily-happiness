@@ -36,7 +36,7 @@ export default function WelcomeModal() {
                 alt="right cloud with book"
               />{" "}
               <span className={styles.read}>
-                view some that you've already recorded
+                to view some that you've already recorded
               </span>
               .
             </p>

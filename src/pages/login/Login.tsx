@@ -39,6 +39,7 @@ export default function Login({ guestSignup }: Prop) {
   };
 
   return (
+    // <div className={styles.centered}>
     <div className={styles["login-container"]}>
       <p className={styles.subtitle}>
         {signupPage || guestSignup ? "Sign up" : "Login"}
@@ -137,5 +138,6 @@ export default function Login({ guestSignup }: Prop) {
         )}
       </div>
     </div>
+    // </div>
   );
 }

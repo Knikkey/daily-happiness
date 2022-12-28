@@ -1,8 +1,13 @@
 @import "../../vars";
 
+.centered {
+  @include flex-col--center;
+  height: 100vh;
+  width: 100%;
+}
+
 .login-container {
   @include flex-col--center;
-  width: fit-content;
   gap: 0.6rem;
 
   padding: 1rem 3rem;

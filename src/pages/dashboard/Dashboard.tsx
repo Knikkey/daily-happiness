@@ -32,7 +32,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (audio.current) {
-      audio.current.volume = 0.5;
+      audio.current.volume = 0.2;
       !mute ? audio.current?.play() : audio.current.pause();
     }
   }, [mute]);
@@ -133,6 +133,16 @@ export default function Dashboard() {
           </svg>
         )}
       </button>
+      <footer>
+        Music by{" "}
+        <a
+          href="https://www.youtube.com/channel/UCM4rFS9nLw2AiBNiDWBNChg"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          Oneul
+        </a>
+      </footer>
     </div>
   );
 }

@@ -37,7 +37,7 @@ export function useSignup() {
         date: date,
         uid: response.user.uid,
         photo:
-          "https://firebasestorage.googleapis.com/v0/b/daily-happiness-9c0d0.appspot.com/o/photos%2FaUmNshq3NgP12oXwtYljUEqNh283%2Fhappy.jpg?alt=media&token=647af05f-ddf0-4734-80bd-c7a026164801",
+          "https://firebasestorage.googleapis.com/v0/b/daily-happiness-9c0d0.appspot.com/o/photos%2Fhappy.jpg?alt=media&token=b38dc328-7d18-4239-a3ed-4c2a665b18ab",
       });
 
       dispatch({ type: "LOGIN", payload: response.user });
