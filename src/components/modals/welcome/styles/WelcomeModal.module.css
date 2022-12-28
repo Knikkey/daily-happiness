@@ -1,0 +1,65 @@
+:root {
+  --box-shadow: 1px 2px 8px #999;
+  --box-shadow--light: 1px 2px 8px #bbb;
+  --transparent: rgba(0, 0, 0, 0);
+  --border-radius--base: 15px;
+  --border-radius--light: 8px;
+  --small-font-size: 1.2rem;
+  --low-mid-font-size: 1.6rem;
+  --mid-font-size: 1.8rem;
+  --high-mid-font-size: 2rem;
+  --large-font-size: 2.4rem;
+  --xl-font-size: 2.8rem;
+  --subtitle-font-size: 3.2rem;
+  --title-font-size: 4.8rem;
+}
+
+.welcome-container {
+  height: fit-content;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: var(--box-shadow);
+  margin: 0;
+}
+
+.welcome {
+  font-size: var(--large-font-size);
+  text-align: center;
+  margin: 0;
+}
+
+.message {
+  font-size: var(--low-mid-font-size);
+  margin: 0;
+}
+.message img {
+  height: 4rem;
+  width: 4rem;
+  transform: translateY(25%);
+}
+.message .right {
+  transform: translateY(25%) rotateY(180deg);
+}
+.message p {
+  margin: 0;
+}
+.message span {
+  margin: 0;
+}
+.message .pencil {
+  color: blue;
+}
+.message .record {
+  color: darkblue;
+}
+.message .book {
+  color: pink;
+}
+.message .read {
+  color: deeppink;
+}
+
+.end {
+  text-align: center;
+}/*# sourceMappingURL=WelcomeModal.module.css.map */

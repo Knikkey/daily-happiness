@@ -1,0 +1,59 @@
+@import "../../../vars";
+
+.welcome-container {
+  height: fit-content;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: var(--box-shadow);
+  margin: 0;
+}
+
+.welcome {
+  font-size: var(--large-font-size);
+  text-align: center;
+  margin: 0;
+}
+
+.message {
+  font-size: var(--low-mid-font-size);
+  margin: 0;
+
+  img {
+    height: 4rem;
+    width: 4rem;
+    transform: translateY(25%);
+  }
+
+  .right {
+    transform: translateY(25%) rotateY(180deg);
+  }
+
+  p {
+    margin: 0;
+  }
+
+  span {
+    margin: 0;
+  }
+
+  .pencil {
+    color: blue;
+  }
+
+  .record {
+    color: darkblue;
+  }
+
+  .book {
+    color: pink;
+  }
+
+  .read {
+    color: deeppink;
+  }
+}
+
+.end {
+  text-align: center;
+}
