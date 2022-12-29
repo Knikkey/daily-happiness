@@ -16,14 +16,19 @@
 
 .welcome-container {
   height: fit-content;
-  background-color: white;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #fdeffe;
   padding: 1rem;
   border-radius: 15px;
   box-shadow: var(--box-shadow);
   margin: 0;
 }
 .welcome-container .welcome {
-  font-size: var(--large-font-size);
+  font-size: var(--title-font-size);
+  color: #efb1d0;
+  text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff;
   text-align: center;
   margin: 0;
 }
@@ -32,10 +37,11 @@
   font-size: var(--low-mid-font-size);
   margin: 0;
   line-height: 40px;
+  font-family: Handwriting;
 }
 .message img {
-  height: 4rem;
-  width: 4rem;
+  height: 2.4rem;
+  width: 2.4rem;
   transform: translateY(25%);
 }
 .message .right {
@@ -62,4 +68,9 @@
 
 .end {
   text-align: center;
+}
+
+.music-notes {
+  height: 50%;
+  width: 10%;
 }/*# sourceMappingURL=WelcomeModal.module.css.map */
