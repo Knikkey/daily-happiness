@@ -20,8 +20,8 @@ interface Memories {
 }
 
 export default function Memories({ setState }: boolStateProp) {
-  const [memories, setMemories] = useState<any[]>();
-  const [currentMemory, setCurrentMemory] = useState<Memories>();
+  const [memories, setMemories] = useState<any[] | null>(null);
+  const [currentMemory, setCurrentMemory] = useState<Memories | null>(null);
   const [error, setError] = useState<any>(null);
   const { user } = useAuthContext();
 
@@ -46,12 +46,20 @@ export default function Memories({ setState }: boolStateProp) {
   //set first memory
   useEffect(() => randomMemory(), [memories]);
 
+  useEffect(() => {
+    if (memories && memories.length === 0) return;
+    if (memories && memories.length === 1) setCurrentMemory(memories[0]);
+    if (memories && memories.length > 1) {
+      randomMemory();
+    }
+  }, [memories]);
+
   const randomMemory = () => {
     if (memories) {
-      const randomNum = Math.floor(Math.random() * memories.length);
-      memories[randomNum] === currentMemory
-        ? randomMemory()
-        : setCurrentMemory(memories[randomNum]);
+      let potentialMemory =
+        memories[Math.floor(Math.random() * memories.length)];
+      setCurrentMemory(potentialMemory);
+      if (potentialMemory === currentMemory) randomMemory();
     }
   };
 
@@ -80,7 +88,7 @@ export default function Memories({ setState }: boolStateProp) {
         </>
       </PaperBackground>
       <>
-        {currentMemory && currentMemory.photo && (
+        {currentMemory && memories && memories.length > 1 && (
           <button className={styles["random-btn"]} onClick={randomMemory}>
             View another random happy memory
           </button>
