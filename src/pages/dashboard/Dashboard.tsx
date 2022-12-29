@@ -12,6 +12,7 @@ import styles from "./styles/Dashboard.module.css";
 import InputModal from "../../components/modals/input/InputModal";
 import Memories from "../../components/modals/memories/Memories";
 import WelcomeModal from "../../components/modals/welcome/WelcomeModal";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 export default function Dashboard() {
   const [showSignup, setShowSignup] = useState(false);
@@ -23,6 +24,7 @@ export default function Dashboard() {
 
   //hooks
   const { currentUser } = auth;
+  const { user } = useAuthContext();
   const { logout } = useLogout();
 
   //functions
@@ -40,38 +42,18 @@ export default function Dashboard() {
   return (
     <div className={styles["dashboard-container"]}>
       {/* ****************GUEST BANNER *****************/}
-      {currentUser?.isAnonymous && (
-        <>
+      <>
+        {currentUser?.isAnonymous ? (
           <p className={styles["guest-banner"]}>
-            You're currently using a guest account. Please{" "}
-            <button onClick={() => setShowSignup(true)}>SIGN UP</button> to save
-            your data.
+            You're currently using a guest account.
           </p>
-          {showSignup && (
-            <div className={styles["signup-container"]}>
-              <Login guestSignup={guestSignup} />
-              <button
-                className={styles["close-btn"]}
-                onClick={() => setShowSignup(false)}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
-            </div>
-          )}
-        </>
-      )}
+        ) : (
+          <p className={styles["guest-banner"]}>
+            Currently logged in as: {user.displayName}
+          </p>
+        )}
+      </>
+
       {/* ****************WELCOME MODAL *****************/}
       <WelcomeModal />
       {/* ****************AVATAR *****************/}

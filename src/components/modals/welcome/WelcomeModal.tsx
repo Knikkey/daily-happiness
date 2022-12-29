@@ -19,7 +19,7 @@ export default function WelcomeModal() {
           <div className={styles["welcome-container"]}>
             <p className={styles.welcome}>
               Happy days,{" "}
-              {currentUser?.isAnonymous ? user.displayName : "friend"}
+              {currentUser?.isAnonymous ? "friend" : user.displayName}
             </p>
             <p className={styles.message}>
               Click the{" "}
