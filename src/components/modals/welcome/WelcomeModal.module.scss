@@ -7,17 +7,18 @@
   border-radius: 15px;
   box-shadow: var(--box-shadow);
   margin: 0;
-}
 
-.welcome {
-  font-size: var(--large-font-size);
-  text-align: center;
-  margin: 0;
+  .welcome {
+    font-size: var(--large-font-size);
+    text-align: center;
+    margin: 0;
+  }
 }
 
 .message {
   font-size: var(--low-mid-font-size);
   margin: 0;
+  line-height: 40px;
 
   img {
     height: 4rem;

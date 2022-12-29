@@ -41,11 +41,11 @@ export default function Dashboard() {
 
   return (
     <div className={styles["dashboard-container"]}>
-      {/* ****************GUEST BANNER *****************/}
+      {/* ****************BANNER *****************/}
       <>
         {currentUser?.isAnonymous ? (
           <p className={styles["guest-banner"]}>
-            You're currently using a guest account.
+            You're currently using a guest account. Your data will not be saved.
           </p>
         ) : (
           <p className={styles["guest-banner"]}>

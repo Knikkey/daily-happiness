@@ -2,10 +2,25 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  font-family: Main;
+  letter-spacing: 1px;
 }
 
 button {
   cursor: pointer;
   background-color: inherit;
   font-size: inherit;
+  font-family: inherit;
+  line-height: 25px;
+}
+
+@font-face {
+  font-family: Main;
+  src: url("./fonts/Wash-Your-Hand.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Handwriting;
+  src: url("./fonts/KyoboHandwriting2019.ttf") format("truetype");
 }
