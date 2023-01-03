@@ -37,7 +37,19 @@
   }
 
   to {
-    @include widthHeight100;
+    @include width-height-100;
     opacity: 1;
   }
+}
+
+@media (max-width: 32em) {
+  .modal {
+    &-relative {
+      .close-btn {
+      top: 1%;
+        right: 2%;
+    }
+    }
+  }
+  
 }

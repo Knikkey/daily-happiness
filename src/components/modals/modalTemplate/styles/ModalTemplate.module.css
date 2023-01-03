@@ -44,10 +44,6 @@
   transform: translateY(1px);
   box-shadow: none;
 }
-.modal-relative .close-btn svg {
-  width: 100%;
-  height: 100%;
-}
 
 @keyframes open {
   from {
@@ -56,8 +52,14 @@
     opacity: 0;
   }
   to {
-    height: 100%;
     width: 100%;
+    height: 100%;
     opacity: 1;
+  }
+}
+@media (max-width: 32em) {
+  .modal-relative .close-btn {
+    top: 1%;
+    right: 2%;
   }
 }/*# sourceMappingURL=ModalTemplate.module.css.map */

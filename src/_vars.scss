@@ -44,7 +44,7 @@
   justify-content: center;
 }
 
-@include widthHeight100 {
+@mixin width-height-100 {
   width: 100%;
   height: 100%;
 }

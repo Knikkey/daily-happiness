@@ -15,7 +15,6 @@
   transform: translateX(50%);
   background-color: white;
   box-shadow: var(--box-shadow);
-  padding: 0.4rem 0.8rem;
   border-radius: var(--border-radius--base);
   z-index: 2;
 }

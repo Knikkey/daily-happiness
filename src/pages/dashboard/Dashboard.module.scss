@@ -38,24 +38,6 @@
     }
   }
 
-  .signup-container {
-    position: relative;
-    z-index: 2;
-
-    .close-btn {
-      position: absolute;
-      top: 7%;
-      right: 5%;
-      height: 25px;
-      width: 25px;
-      border: none;
-      padding: 0;
-      z-index: 3;
-      box-shadow: var(--box-shadow);
-      @include btn-press;
-    }
-  }
-
   .avatar-container {
     position: relative;
     height: 40%;
@@ -115,5 +97,38 @@
       height: 30px;
       width: 30px;
     }
+  }
+}
+
+@media (max-width: 49em) {
+  .dashboard-container {
+    .guest-banner {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (max-width: 35em) {
+  .dashboard-container {
+    .guest-banner {
+      font-size: 0.8rem;
+    }
+
+    .avatar-container {
+      .cloud--left,
+      .cloud--right {
+        width: 50%;
+        top: -35%;
+      }
+
+      .cloud--left {
+        left: -20%;
+      }
+
+      .cloud--right {
+        right: 0;
+      }
+    }
+    
   }
 }

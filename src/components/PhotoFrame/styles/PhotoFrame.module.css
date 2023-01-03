@@ -17,6 +17,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 .photo-container .photo {
   position: relative;
@@ -52,4 +53,21 @@
 .photo-container .photo img {
   max-width: 100%;
   max-height: 100%;
+}
+
+@media (max-width: 65em) {
+  .photo-container {
+    padding-bottom: 3rem;
+  }
+  .photo-container .photo {
+    height: 100%;
+  }
+  .photo-container .photo:after {
+    top: -10%;
+    left: -15%;
+  }
+  .photo-container .photo:before {
+    bottom: -10%;
+    right: -15%;
+  }
 }/*# sourceMappingURL=PhotoFrame.module.css.map */

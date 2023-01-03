@@ -45,32 +45,6 @@
 .dashboard-container .guest-banner button:hover {
   color: darkblue;
 }
-.dashboard-container .signup-container {
-  position: relative;
-  z-index: 2;
-}
-.dashboard-container .signup-container .close-btn {
-  position: absolute;
-  top: 7%;
-  right: 5%;
-  height: 25px;
-  width: 25px;
-  border: none;
-  padding: 0;
-  z-index: 3;
-  box-shadow: var(--box-shadow);
-}
-.dashboard-container .signup-container .close-btn:hover {
-  background-color: #eee;
-}
-.dashboard-container .signup-container .close-btn:active {
-  transform: translateY(1px);
-  box-shadow: none;
-}
-.dashboard-container .signup-container .close-btn svg {
-  width: 100%;
-  height: 100%;
-}
 .dashboard-container .avatar-container {
   position: relative;
   height: 40%;
@@ -126,4 +100,26 @@
 .dashboard-container .sound-btn svg {
   height: 30px;
   width: 30px;
+}
+
+@media (max-width: 49em) {
+  .dashboard-container .guest-banner {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 35em) {
+  .dashboard-container .guest-banner {
+    font-size: 0.8rem;
+  }
+  .dashboard-container .avatar-container .cloud--left,
+.dashboard-container .avatar-container .cloud--right {
+    width: 50%;
+    top: -35%;
+  }
+  .dashboard-container .avatar-container .cloud--left {
+    left: -20%;
+  }
+  .dashboard-container .avatar-container .cloud--right {
+    right: 0;
+  }
 }/*# sourceMappingURL=Dashboard.module.css.map */
