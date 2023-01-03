@@ -5,6 +5,7 @@
   height: 100%;
   padding: 0.5rem;
   @include flex-col--center;
+  box-sizing: border-box;
 
   .photo {
     position: relative;
@@ -17,6 +18,7 @@
     box-shadow: var(--box-shadow--dark);
     margin: 0 auto;
     background: #111;
+    
 
     &:before,
     &:after {
@@ -45,5 +47,25 @@
       max-width: 100%;
       max-height: 100%;
     }
+  }
+}
+
+@media (max-width: 65em) {
+  .photo-container {
+   padding-bottom: 3rem;
+   
+   .photo {
+    height: 100%;
+
+    &:after {
+      top: -10%;
+      left: -15%;
+    }
+
+    &:before {
+      bottom: -10%;
+      right: -15%;
+    }
+   }
   }
 }

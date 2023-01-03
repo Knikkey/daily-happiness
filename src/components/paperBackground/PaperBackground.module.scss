@@ -2,7 +2,7 @@
 
 .paper {
   position: relative;
-  @include widthHeight100;
+  @include width-height-100;
   margin: 0 auto;
   background: #fafafa;
   border-radius: var(--border-radius--light);
@@ -37,7 +37,7 @@
 
     textarea,
     p {
-      @include widthHeight100;
+      @include width-height-100;
       line-height: 30px;
       padding: 0 10px;
       font-size: var(--small-font-size);
@@ -81,6 +81,34 @@
       background-color: white;
 
       @include btn-press;
+    }
+  }
+}
+
+@media (max-width: 65em) {
+    .paper-content {
+    grid-template-columns: 1fr;
+
+    textarea {
+      margin-left: 1rem;
+    }
+
+    button {
+      top: 95%;
+    }
+  }
+}
+
+@media (max-width: 32em) {
+  .paper {
+    font-size: 0.8rem;
+
+    label {
+      padding: 4px 8px;
+    }
+
+    button {
+      padding: 2px 4px;
     }
   }
 }

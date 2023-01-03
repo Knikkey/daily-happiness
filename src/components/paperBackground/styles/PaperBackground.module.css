@@ -94,4 +94,27 @@
 .paper-content button:active {
   transform: translateY(1px);
   box-shadow: none;
+}
+
+@media (max-width: 65em) {
+  .paper-content {
+    grid-template-columns: 1fr;
+  }
+  .paper-content textarea {
+    margin-left: 1rem;
+  }
+  .paper-content button {
+    top: 95%;
+  }
+}
+@media (max-width: 32em) {
+  .paper {
+    font-size: 0.8rem;
+  }
+  .paper label {
+    padding: 4px 8px;
+  }
+  .paper button {
+    padding: 2px 4px;
+  }
 }/*# sourceMappingURL=PaperBackground.module.css.map */
