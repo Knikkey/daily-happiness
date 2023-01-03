@@ -1,5 +1,20 @@
 @import "../../../vars";
 
 .random-btn {
-  @include btn--paper;
+  position: absolute;
+  bottom: 5%;
+  right: 50%;
+  transform: translateX(50%);
+  background-color: white;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius-base);
+
+  &:hover {
+    background-color: #eee;
+  }
+
+  &:active {
+    transform: translateX(50%) translateY(1px);
+    box-shadow: none;
+  }
 }

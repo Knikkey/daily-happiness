@@ -13,12 +13,13 @@
 
   padding: 1rem 3rem;
   border-radius: var(--border-radius--base);
-  box-shadow: var(--box-shadow--light);
+  box-shadow: var(--box-shadow);
   font-size: var(--small-font-size);
   background-color: white;
 
   .subtitle {
-    @include subtitle;
+    font-size: var(--title-font-size);
+    margin: 0
   }
 
   form {
@@ -51,7 +52,6 @@
       margin-top: 0.6rem;
       border: 1px solid #111;
       border-radius: var(--border-radius--light);
-      padding: 0.4rem 0.8rem;
       box-shadow: var(--box-shadow--light);
       background-color: lightblue;
 
