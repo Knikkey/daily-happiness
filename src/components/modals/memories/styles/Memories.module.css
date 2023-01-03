@@ -16,7 +16,7 @@
   transform: translateX(50%);
   background-color: white;
   box-shadow: var(--box-shadow);
-  border-radius: var(--border-radius-base);
+  border-radius: var(--border-radius--base);
 }
 .random-btn:hover {
   background-color: #eee;
