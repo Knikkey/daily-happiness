@@ -34,14 +34,14 @@ export default function WelcomeModal() {
                 <img
                   src={pencil}
                   className={styles.left}
-                  alt="left cloud with pencil"
+                  alt="add memories button"
                 />{" "}
                 to <span className={styles.record}>record a happy memory</span>{" "}
                 or click the{" "}
                 <img
                   src={book}
                   className={styles.right}
-                  alt="right cloud with book"
+                  alt="read memories button"
                 />{" "}
                 <span className={styles.read}>
                   to view some that you've already recorded

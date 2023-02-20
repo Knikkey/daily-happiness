@@ -21,21 +21,6 @@
     padding: 0.5rem;
     font-family: Handwriting;
     z-index: 2;
-
-    button {
-      border: none;
-      border-bottom: 1px blue solid;
-      font-size: inherit;
-      background-color: inherit;
-      color: blue;
-      cursor: pointer;
-      padding: 0;
-      margin: 0;
-
-      &:hover {
-        color: darkblue;
-      }
-    }
   }
 
   .avatar-container {
@@ -92,11 +77,8 @@
     right: 6%;
     border: none;
     z-index: 2;
-
-    svg {
-      height: 30px;
-      width: 30px;
-    }
+    height: 30px;
+    width: 30px;
   }
 }
 
@@ -129,6 +111,5 @@
         right: 0;
       }
     }
-    
   }
 }

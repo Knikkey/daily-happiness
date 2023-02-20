@@ -32,19 +32,6 @@
   font-family: Handwriting;
   z-index: 2;
 }
-.dashboard-container .guest-banner button {
-  border: none;
-  border-bottom: 1px blue solid;
-  font-size: inherit;
-  background-color: inherit;
-  color: blue;
-  cursor: pointer;
-  padding: 0;
-  margin: 0;
-}
-.dashboard-container .guest-banner button:hover {
-  color: darkblue;
-}
 .dashboard-container .avatar-container {
   position: relative;
   height: 40%;
@@ -96,8 +83,6 @@
   right: 6%;
   border: none;
   z-index: 2;
-}
-.dashboard-container .sound-btn svg {
   height: 30px;
   width: 30px;
 }
@@ -112,7 +97,7 @@
     font-size: 0.8rem;
   }
   .dashboard-container .avatar-container .cloud--left,
-.dashboard-container .avatar-container .cloud--right {
+  .dashboard-container .avatar-container .cloud--right {
     width: 50%;
     top: -35%;
   }
