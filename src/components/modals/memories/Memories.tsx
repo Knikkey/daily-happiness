@@ -43,7 +43,7 @@ export default function Memories({ setState }: boolStateProp) {
     })();
   }, []);
 
-  //set first memory
+  //set first visible memory
   useEffect(() => randomMemory(), [memories]);
 
   useEffect(() => {

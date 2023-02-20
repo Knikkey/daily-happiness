@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import { auth } from "../../../firebase/config";
 import ModalTemplate from "../modalTemplate/ModalTemplate";
-import pencil from "./imgs/pencil.png";
-import book from "./imgs/book.png";
-import musicNotesLeft from "./imgs/musicNotesLeft.png";
-import musicNotesRight from "./imgs/musicNotesRight.png";
+import pencil from "./imgs/pencil.webp";
+import book from "./imgs/book.webp";
+import musicNotesLeft from "./imgs/musicNotesLeft.webp";
+import musicNotesRight from "./imgs/musicNotesRight.webp";
 
 import styles from "./styles/WelcomeModal.module.css";
 
