@@ -112,6 +112,7 @@ export default function InputModal({ setState }: boolStateProp) {
       <PaperBackground formOrDiv="form" handler={submitHandler}>
         <textarea
           autoFocus
+          placeholder="Type your wonderful memory here."
           onChange={(e) => setSubmittedText(e.target.value)}
         />
         <PhotoFrame>
@@ -126,9 +127,9 @@ export default function InputModal({ setState }: boolStateProp) {
           {error && <div>An error occured: {error}</div>}
           {!previewPhoto && !pending && (
             <>
-              <label htmlFor="upload">Add a photo</label>
+              <label htmlFor="upload photo">Add a photo</label>
               <input
-                id="upload"
+                id="upload photo"
                 type="file"
                 accept="image/*"
                 onChange={photoHandler}

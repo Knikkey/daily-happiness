@@ -5,9 +5,9 @@ import { auth } from "../../firebase/config";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
 //media
-import leftCloud from "./media/left-cloud.png";
-import rightCloud from "./media/right-cloud.png";
-import avatar from "./media/avatar.png";
+import leftCloud from "./media/left-cloud.webp";
+import rightCloud from "./media/right-cloud.webp";
+import avatar from "./media/avatar.webp";
 import happySong from "./media/happySong.mp3";
 import Mute from "./media/Mute";
 import Unmute from "./media/Unmute";
