@@ -1,8 +1,9 @@
 //handles login and signup based on state
-//handles guest login via boolean prop frpm Dashboard
+//handles guest login via boolean prop from Dashboard
 import { useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
 import { useLogin } from "../../hooks/useLogin";
+import diary from "./diary.webp";
 
 import styles from "./styles/Login.module.css";
 
@@ -41,9 +42,12 @@ export default function Login({ guestSignup }: Prop) {
   return (
     <div className={styles.centered}>
       <div className={styles["login-container"]}>
-        <p className={styles.subtitle}>
-          {signupPage || guestSignup ? "Sign up" : "Login"}
-        </p>
+        <div className={styles["title-container"]}>
+          <img src={diary} alt="picture of a diary" />
+          <p className={styles.subtitle}>
+            {signupPage || guestSignup ? "Sign up" : "Login"}
+          </p>
+        </div>
 
         <form onSubmit={submitHandler}>
           <label htmlFor="email">Email:</label>
@@ -96,27 +100,28 @@ export default function Login({ guestSignup }: Prop) {
           </div>
 
           {/* **********************LOGIN BUTTONS********************** */}
-          {signupPage && (
-            <button type="submit">
-              {isPending ? "Authenticating..." : "Sign up"}
-            </button>
-          )}
-          {guestSignup && (
-            <button type="submit">
-              {isPending ? "Authenticating..." : "Sign up"}
-            </button>
-          )}
-          {!signupPage && !guestSignup && (
-            <button type="submit">
-              {isPending ? "Authenticating..." : "Log in"}
-            </button>
-          )}
-          {!guestSignup && (
-            <button onClick={() => setGuest(true)} className={styles.guest}>
-              Log in as a guest
-            </button>
-          )}
-
+          <div className={styles["btn-container"]}>
+            {signupPage && (
+              <button type="submit">
+                {isPending ? "Authenticating..." : "Sign up"}
+              </button>
+            )}
+            {guestSignup && (
+              <button type="submit">
+                {isPending ? "Authenticating..." : "Sign up"}
+              </button>
+            )}
+            {!signupPage && !guestSignup && (
+              <button type="submit">
+                {isPending ? "Authenticating..." : "Log in"}
+              </button>
+            )}
+            {!guestSignup && (
+              <button onClick={() => setGuest(true)} className={styles.guest}>
+                Log in as a guest
+              </button>
+            )}
+          </div>
           {/* **********************ERROR MESSAGES********************** */}
           {signupError && <p className={styles.error}>{signupError}</p>}
           {loginError && <p className={styles.error}>{loginError}</p>}
