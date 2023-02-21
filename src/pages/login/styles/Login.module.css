@@ -30,8 +30,19 @@
   box-shadow: var(--box-shadow);
   font-size: var(--small-font-size);
   background-color: white;
+  font-family: "Poppins";
 }
-.login-container .subtitle {
+.login-container .title-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.login-container .title-container img {
+  height: 4.8rem;
+  width: auto;
+}
+.login-container .title-container .subtitle {
+  font-weight: 800;
   font-size: var(--title-font-size);
   margin: 0;
 }
@@ -41,9 +52,15 @@
 }
 .login-container form .checkbox {
   margin-top: 0.6rem;
+  display: flex;
+  align-items: center;
+}
+.login-container form .checkbox label {
+  font-weight: 400;
 }
 .login-container form .checkbox input {
-  width: auto;
+  height: 20px;
+  width: 20px;
 }
 .login-container form .error {
   font-size: var(--small-font-size);
@@ -52,28 +69,52 @@
 }
 .login-container form label {
   margin: 0.2rem;
+  font-weight: 500;
+  letter-spacing: -0.3px;
 }
 .login-container form input {
   width: 20em;
   padding: 0.2rem;
+  border: 1px solid #333;
+  border-radius: 22px;
+  padding: 5px;
+  padding-left: 10px;
+  font-size: 1rem;
 }
-.login-container form button {
-  align-self: center;
+.login-container form .btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  margin: 0 auto;
+}
+.login-container form .btn-container button {
+  width: 100%;
+  padding: 0.5rem 0;
   margin-top: 0.6rem;
-  border: 1px solid #111;
+  border: 1px solid #ff8086;
   border-radius: var(--border-radius--light);
   box-shadow: var(--box-shadow--light);
-  background-color: lightblue;
+  background-color: #ff8086;
+  color: white;
+  font-weight: 700;
 }
-.login-container form button:hover {
+.login-container form .btn-container button:hover {
   background-color: #eee;
 }
-.login-container form button:active {
+.login-container form .btn-container button:active {
   transform: translateY(1px);
   box-shadow: none;
 }
-.login-container form .guest {
-  background-color: lightgreen;
+.login-container form .btn-container button:hover {
+  background-color: white;
+  color: #111;
+}
+.login-container form .btn-container .guest {
+  background-color: #faf5dc;
+  color: #111;
+  font-weight: 500;
 }
 
 .signup-container {
