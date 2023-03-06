@@ -6,7 +6,8 @@
   top: 40%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  animation: open 0.8s forwards;
+  @include width-height-100;
+  animation: open 0.3s forwards;
   z-index: 2;
 
   &-relative {
@@ -31,13 +32,10 @@
 
 @keyframes open {
   from {
-    height: 0;
-    width: 0;
     opacity: 0;
   }
 
   to {
-    @include width-height-100;
     opacity: 1;
   }
 }
@@ -46,10 +44,9 @@
   .modal {
     &-relative {
       .close-btn {
-      top: 1%;
+        top: 1%;
         right: 2%;
-    }
+      }
     }
   }
-  
 }
