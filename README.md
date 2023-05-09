@@ -9,7 +9,7 @@ View the hosted site here: [Daily Happiness](https://daily-happiness.netlify.app
 
 ## Usage
 
-![a gif showing how to use the website](https://firebasestorage.googleapis.com/v0/b/portfolio-1ac15.appspot.com/o/dailyHappiness%2FdailyHappinessGif.gif?alt=media&token=0a9cc347-b3f9-4aa6-aaad-59ce186e0fa3)
+![a gif showing how to use the website](./dailyHappinessGif.gif)
 
 
 * Login/signup with your own account or login with a guest account
