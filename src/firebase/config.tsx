@@ -3,8 +3,6 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 
-const en = import.meta.env;
-
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_APP_API_KEY || "mock_key",
   authDomain: import.meta.env.VITE_APP_AUTH_DOMAIN,
