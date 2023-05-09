@@ -1,3 +1,5 @@
+![Header](./readme-banner.png)
+
 # Daily Happiness
 
 Daily Happiness is a web application that allows users to store happy memories to be viewed later at random, whether it be immediately or months later.
