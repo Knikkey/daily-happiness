@@ -1,4 +1,4 @@
-import styles from "./styles/PhotoFrame.module.css";
+import styles from "./PhotoFrame.module.scss";
 
 interface PaperProp {
   children: JSX.Element | JSX.Element[];

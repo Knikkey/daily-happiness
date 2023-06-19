@@ -9,7 +9,7 @@ import PaperBackground from "../../paperBackground/PaperBackground";
 import PhotoFrame from "../../PhotoFrame/PhotoFrame";
 import ModalTemplate from "../modalTemplate/ModalTemplate";
 //styles
-import styles from "./styles/Memories.module.css";
+import styles from "./Memories.module.scss";
 
 interface Memories {
   memory: string;

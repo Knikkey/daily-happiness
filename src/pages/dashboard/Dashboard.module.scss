@@ -4,7 +4,7 @@
   @include flex-col;
   justify-content: flex-end;
   align-items: center;
-  height: 98vh;
+  height: 100svh;
   width: 100%;
   margin: 0;
   background-color: #fbaed2;
@@ -80,6 +80,10 @@
     height: 30px;
     width: 30px;
     padding: 0;
+  }
+
+  footer {
+    padding-bottom: 10px;
   }
 }
 

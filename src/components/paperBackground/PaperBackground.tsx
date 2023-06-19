@@ -1,4 +1,4 @@
-import styles from "./styles/PaperBackground.module.css";
+import styles from "./PaperBackground.module.scss";
 
 interface PaperProps {
   formOrDiv: string;

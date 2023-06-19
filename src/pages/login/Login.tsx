@@ -5,7 +5,7 @@ import { useSignup } from "../../hooks/useSignup";
 import { useLogin } from "../../hooks/useLogin";
 import diary from "./diary.webp";
 
-import styles from "./styles/Login.module.css";
+import styles from "./Login.module.scss";
 
 interface Prop {
   guestSignup?: boolean;

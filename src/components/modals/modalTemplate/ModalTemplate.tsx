@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import styles from "./styles/ModalTemplate.module.css";
+import styles from "./ModalTemplate.module.scss";
 
 interface ModalProps {
   setProp: React.Dispatch<React.SetStateAction<boolean>>;

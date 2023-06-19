@@ -7,7 +7,7 @@ import book from "./imgs/book.webp";
 import musicNotesLeft from "./imgs/musicNotesLeft.webp";
 import musicNotesRight from "./imgs/musicNotesRight.webp";
 
-import styles from "./styles/WelcomeModal.module.css";
+import styles from "./WelcomeModal.module.scss";
 
 export default function WelcomeModal() {
   const [showWelcome, setShowWelcome] = useState(true);

@@ -10,7 +10,7 @@ import ModalTemplate from "../modalTemplate/ModalTemplate";
 import PaperBackground from "../../paperBackground/PaperBackground";
 import PhotoFrame from "../../PhotoFrame/PhotoFrame";
 //styles
-import styles from "./styles/InputModal.module.css";
+import styles from "./InputModal.module.scss";
 
 export default function InputModal({ setState }: boolStateProp) {
   const [submittedText, setSubmittedText] = useState("");

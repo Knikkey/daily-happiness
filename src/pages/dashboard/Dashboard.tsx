@@ -18,7 +18,7 @@ import Memories from "../../components/modals/memories/Memories";
 import WelcomeModal from "../../components/modals/welcome/WelcomeModal";
 
 //styles
-import styles from "./styles/Dashboard.module.css";
+import styles from "./Dashboard.module.scss";
 
 export default function Dashboard() {
   const [showInput, setShowInput] = useState(false);
