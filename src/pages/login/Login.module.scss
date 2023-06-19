@@ -2,7 +2,7 @@
 
 .centered {
   @include flex-col--center;
-  height: 100vh;
+  height: 100svh;
 }
 
 .login-container {
@@ -119,6 +119,34 @@
 
     &:hover {
       color: #111;
+    }
+  }
+}
+
+@media (max-width: 39rem) {
+  .login-container {
+    border-radius: none;
+    box-shadow: none;
+
+    .title-container {
+      img {
+        height: 30px;
+      }
+
+      .subtitle {
+        font-size: var(--large-font-size);
+        font-weight: 800;
+      }
+    }
+
+    form {
+      font-size: 1rem;
+    }
+  }
+
+  .signup-container {
+    button {
+      font-size: 1rem;
     }
   }
 }

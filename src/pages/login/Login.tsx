@@ -44,9 +44,9 @@ export default function Login({ guestSignup }: Prop) {
       <div className={styles["login-container"]}>
         <div className={styles["title-container"]}>
           <img src={diary} alt="picture of a diary" />
-          <p className={styles.subtitle}>
+          <h1 className={styles.subtitle}>
             {signupPage || guestSignup ? "Sign up" : "Login"}
-          </p>
+          </h1>
         </div>
 
         <form onSubmit={submitHandler}>
