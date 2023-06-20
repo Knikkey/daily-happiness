@@ -8,6 +8,7 @@
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius--base);
   z-index: 2;
+  color: black;
 
   &:active {
     transform: translateX(50%) translateY(1px) !important;
