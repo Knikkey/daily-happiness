@@ -15,3 +15,9 @@
     box-shadow: none;
   }
 }
+
+@media (max-width: 32em) {
+  .submit-btn {
+    border: 1px solid black;
+  }
+}
