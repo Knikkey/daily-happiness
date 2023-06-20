@@ -43,6 +43,7 @@
 @media (max-width: 32em) {
   .modal {
     &-relative {
+      width: 90vw;
       .close-btn {
         top: 1%;
         right: 2%;
