@@ -19,7 +19,7 @@
     font-size: var(--low-mid-font-size);
     background-color: #eee;
     margin: 0;
-    padding: 0.5rem;
+    padding: 0.5rem 0;
     font-family: Handwriting;
     z-index: 2;
   }
@@ -100,8 +100,6 @@
   .dashboard-container {
     .guest-banner {
       font-size: 0.8rem;
-      width: 100vw;
-      padding: 0.5rem 1rem;
     }
 
     .avatar-container {
