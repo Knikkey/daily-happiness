@@ -42,7 +42,7 @@ export default function Login({ guestSignup }: Prop) {
   return (
     <div className={styles["login-container"]}>
       <div className={styles["title-container"]}>
-        <img src={diary} alt="picture of a diary" />
+        <img src={diary} alt="" />
         <h1 className={styles.subtitle}>
           {signupPage || guestSignup ? "Sign up" : "Login"}
         </h1>
