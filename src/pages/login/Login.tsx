@@ -1,6 +1,6 @@
 //handles login and signup based on state
 //handles guest login via boolean prop from Dashboard
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
 import { useLogin } from "../../hooks/useLogin";
 import diary from "./diary.webp";
@@ -117,7 +117,7 @@ export default function Login({ guestSignup }: Prop) {
           )}
           {!guestSignup && (
             <button onClick={() => setGuest(true)} className={styles.guest}>
-              Log in as a guest
+              {isPending ? "Authenticating..." : "Log in as guest"}
             </button>
           )}
         </div>
@@ -136,8 +136,8 @@ export default function Login({ guestSignup }: Prop) {
         {!signupPage && !guestSignup && (
           <>
             <button onClick={() => setSignupPage(true)}>Sign up</button>
-            <button>Forgot username</button>
-            <button>Forgot password</button>
+            {/* <button>Forgot username</button>
+            <button>Forgot password</button> */}
           </>
         )}
       </div>
