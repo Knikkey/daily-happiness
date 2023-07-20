@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 
 import { auth } from "../firebase/config";
 import { signOut } from "firebase/auth";
 
 export const useLogout = () => {
+  const [logoutError, setLogoutError] = useState<any>(null);
   const { dispatch } = useAuthContext();
 
   const logout = async () => {
@@ -11,9 +13,9 @@ export const useLogout = () => {
     try {
       dispatch({ type: "LOGOUT" });
     } catch (err: any) {
-      console.log(err.message);
+      setLogoutError(err);
     }
   };
 
-  return { logout };
+  return { logout, logoutError };
 };
