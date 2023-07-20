@@ -63,18 +63,20 @@ export default function Dashboard() {
       <WelcomeModal />
       {/* ****************AVATAR *****************/}
       <div className={styles["avatar-container"]}>
-        <img
+        <input
+          type="image"
           src={leftCloud}
           alt="add memories button"
           className={styles["cloud--left"]}
           onClick={() => setShowInput(true)}
-        ></img>
-        <img
+        ></input>
+        <input
+          type="image"
           src={rightCloud}
           alt="read memories button"
           className={styles["cloud--right"]}
           onClick={() => setShowMemories(true)}
-        ></img>
+        ></input>
         <img className={styles.avatar} src={avatar} alt="smiling avatar" />
       </div>
       {/* ****************MODALS *****************/}
