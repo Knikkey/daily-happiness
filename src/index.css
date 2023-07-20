@@ -31,3 +31,11 @@ svg {
   font-family: Handwriting;
   src: url("./fonts/KyoboHandwriting2019.ttf") format("truetype");
 }
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100svh;
+}

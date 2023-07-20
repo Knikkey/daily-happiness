@@ -6,7 +6,7 @@ export default function Home() {
   const { user } = useAuthContext();
 
   return (
-    <div>
+    <div className="page-container">
       {!user && <Login />}
       {user && <Dashboard />}
     </div>
