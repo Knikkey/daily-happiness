@@ -1,10 +1,9 @@
 @import "../../vars";
 
 .photo-container {
-  width: 100%;
-  height: 100%;
-  padding: 0.5rem;
+  @include width-height-100;
   @include flex-col--center;
+  padding: 0.5rem;
   box-sizing: border-box;
 
   .photo {
@@ -17,8 +16,7 @@
     border: white solid 1rem;
     box-shadow: var(--box-shadow--dark);
     margin: 0 auto;
-    background: #111;
-    
+    background: var(--dark-grey);
 
     &:before,
     &:after {
@@ -52,20 +50,20 @@
 
 @media (max-width: 65em) {
   .photo-container {
-   padding-bottom: 3rem;
-   
-   .photo {
-    height: 100%;
+    padding-bottom: 3rem;
 
-    &:after {
-      top: -10%;
-      left: -15%;
-    }
+    .photo {
+      height: 100%;
 
-    &:before {
-      bottom: -10%;
-      right: -15%;
+      &:after {
+        top: -10%;
+        left: -15%;
+      }
+
+      &:before {
+        bottom: -10%;
+        right: -15%;
+      }
     }
-   }
   }
 }
