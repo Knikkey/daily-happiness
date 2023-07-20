@@ -29,7 +29,7 @@ export default function Dashboard() {
   //hooks
   const { currentUser } = auth;
   const { user } = useAuthContext();
-  const { logout } = useLogout();
+  const { logout, logoutError } = useLogout();
 
   //functions
   const handleMusic = () => {
@@ -47,13 +47,14 @@ export default function Dashboard() {
     <div className={styles["dashboard-container"]}>
       {/* ****************BANNER *****************/}
       <>
-        {currentUser?.isAnonymous ? (
-          <p className={styles["guest-banner"]}>
-            You're currently using a guest account. Your data will not be saved.
-          </p>
-        ) : (
-          <p className={styles["guest-banner"]}>
-            Currently logged in as: {user.displayName}
+        <p className={styles["guest-banner"]}>
+          {currentUser?.isAnonymous
+            ? "You're currently using a guest account. Your data will not be saved."
+            : `Currently logged in as: ${user.displayName}`}
+        </p>
+        {logoutError && (
+          <p className={styles["guest-banner"]} role="alert">
+            Unable to logout! Error: {logoutError}
           </p>
         )}
       </>
