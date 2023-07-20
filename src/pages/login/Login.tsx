@@ -122,8 +122,16 @@ export default function Login({ guestSignup }: Prop) {
           )}
         </div>
         {/* **********************ERROR MESSAGES********************** */}
-        {signupError && <p className={styles.error}>{signupError}</p>}
-        {loginError && <p className={styles.error}>{loginError}</p>}
+        {signupError && (
+          <p className={styles.error} role="alert">
+            {signupError}
+          </p>
+        )}
+        {loginError && (
+          <p className={styles.error} role="alert">
+            {loginError}
+          </p>
+        )}
       </form>
 
       {/* **********************BLUE BUTTONS********************** */}
