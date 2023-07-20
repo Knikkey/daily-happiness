@@ -7,12 +7,16 @@ interface ModalProps {
 }
 
 export default function ModalTemplate({ setProp, children }: ModalProps) {
-  const modal = useRef<any>();
+  const modal = useRef<HTMLDivElement>(null);
 
   return (
     <div ref={modal} className={styles.modal}>
       <div className={styles["modal-relative"]}>
-        <button onClick={() => setProp(false)} className={styles["close-btn"]}>
+        <button
+          onClick={() => setProp(false)}
+          className={styles["close-btn"]}
+          aria-label="close modal window"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
