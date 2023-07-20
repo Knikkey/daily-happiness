@@ -1,9 +1,9 @@
 //handles login and signup based on state
 //handles guest login via boolean prop from Dashboard
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSignup } from "../../hooks/useSignup";
 import { useLogin } from "../../hooks/useLogin";
-import diary from "./diary.webp";
+import diary from "./media/diary.webp";
 
 import styles from "./Login.module.scss";
 
