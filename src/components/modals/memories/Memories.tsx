@@ -66,7 +66,7 @@ export default function Memories({ setState }: boolStateProp) {
       <PaperBackground formOrDiv="div">
         <p>
           {currentMemory
-            ? currentMemory.memory
+            ? `${currentMemory.memory} - Recorded on ${currentMemory.date}`
             : "Looks like you haven't recorded any memories yet. Go record one! :)"}
         </p>
         {error && <p>{error}</p>}
