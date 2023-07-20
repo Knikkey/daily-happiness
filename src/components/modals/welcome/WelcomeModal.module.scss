@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  background-color: #fdeffe;
+  background-color: #fef5fe;
   padding: 1rem;
   border-radius: var(--border-radius--base);
   box-shadow: var(--box-shadow);
@@ -13,6 +13,7 @@
 
   .welcome {
     font-size: var(--title-font-size);
+    font-weight: 500;
     color: #efb1d0;
     text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
       2px 2px 0 #fff;
@@ -37,24 +38,13 @@
     transform: translateY(25%) rotateY(180deg);
   }
 
-  p {
-    margin: 0;
-  }
-
+  p,
   span {
     margin: 0;
   }
 
-  .pencil {
-    color: blue;
-  }
-
   .record {
     color: darkblue;
-  }
-
-  .book {
-    color: pink;
   }
 
   .read {
@@ -74,11 +64,11 @@
 @media (max-width: 60em) {
   .welcome-container {
     .welcome {
-      font-size: 2.4rem;
+      font-size: var(--large-font-size);
     }
 
     .message {
-      font-size: 1rem;
+      font-size: var(--base-font-size);
 
       img {
         height: 1.4rem;
@@ -87,6 +77,6 @@
     }
   }
   .music-notes {
-   display: none; 
+    display: none;
   }
 }
