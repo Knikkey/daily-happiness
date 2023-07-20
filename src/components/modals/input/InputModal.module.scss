@@ -8,7 +8,7 @@
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius--base);
   z-index: 2;
-  color: black;
+  color: var(--dark-grey);
 
   &:active {
     transform: translateX(50%) translateY(1px) !important;
@@ -16,8 +16,11 @@
   }
 }
 
-@media (max-width: 32em) {
-  .submit-btn {
-    border: 1px solid black;
-  }
+.err-msg {
+  font-family: Handwriting;
+  color: red;
+  background-color: white;
+  width: fit-content;
+  margin: 0.5rem auto;
+  text-align: center;
 }

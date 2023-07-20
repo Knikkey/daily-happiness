@@ -13,7 +13,7 @@ import PhotoFrame from "../../PhotoFrame/PhotoFrame";
 import styles from "./InputModal.module.scss";
 
 export default function InputModal({ setState }: boolStateProp) {
-  const [submittedText, setSubmittedText] = useState("");
+  const [submittedText, setSubmittedText] = useState<null | string>(null);
   const [submittedPhoto, setSubmittedPhoto] = useState<null | File>(null);
   const [previewPhoto, setPreviewPhoto] = useState<null | string>(null);
   const [pending, setPending] = useState(false);
@@ -56,11 +56,12 @@ export default function InputModal({ setState }: boolStateProp) {
 
             //convert to file
             const data = compressedUrl.split(",")[1];
-
             const dataStr = window.atob(data);
             let x = dataStr.length;
             const dataArr = new Uint8Array(x);
+
             while (x--) dataArr[x] = dataStr.charCodeAt(x);
+
             let file = new File([dataArr], `${fileName}.jpeg`, {
               type: "image/jpeg",
             });
@@ -92,6 +93,10 @@ export default function InputModal({ setState }: boolStateProp) {
         photoURL = await getDownloadURL(photoRef);
       }
 
+      if (!submittedText && !photoURL) {
+        throw new Error("Please input a text entry, a photo entry, or both.");
+      }
+
       await addDoc(collection(database, "memories"), {
         memory: submittedText,
         date: date,
@@ -102,8 +107,8 @@ export default function InputModal({ setState }: boolStateProp) {
       setState(false);
       setPending(false);
     } catch (err: any) {
-      setError(err.messsage);
-      console.log(err.messsage);
+      setError(err.message);
+      setPending(false);
     }
   };
 
@@ -116,26 +121,30 @@ export default function InputModal({ setState }: boolStateProp) {
           onChange={(e) => setSubmittedText(e.target.value)}
         />
         <PhotoFrame>
-          {previewPhoto && (
-            <>
-              <img src={previewPhoto} alt="picture selected for upload" />
-              <button onClick={() => setPreviewPhoto(null)} disabled={pending}>
-                {pending ? "Uploading..." : "Remove photo"}
-              </button>
-            </>
-          )}
-          {error && <div>An error occured: {error}</div>}
-          {!previewPhoto && !pending && (
-            <>
-              <label htmlFor="upload photo">Add a photo</label>
-              <input
-                id="upload photo"
-                type="file"
-                accept="image/*"
-                onChange={photoHandler}
-              />
-            </>
-          )}
+          <>
+            {previewPhoto && (
+              <>
+                <img src={previewPhoto} alt="picture selected for upload" />
+                <button
+                  onClick={() => setPreviewPhoto(null)}
+                  disabled={pending}
+                >
+                  {pending ? "Uploading..." : "Remove photo"}
+                </button>
+              </>
+            )}
+            {!previewPhoto && !pending && (
+              <>
+                <label htmlFor="upload photo">Add a photo</label>
+                <input
+                  id="upload photo"
+                  type="file"
+                  accept="image/*"
+                  onChange={photoHandler}
+                />
+              </>
+            )}
+          </>
         </PhotoFrame>
         <button
           type="submit"
@@ -145,6 +154,11 @@ export default function InputModal({ setState }: boolStateProp) {
           {pending ? "Uploading..." : "Save memory"}
         </button>
       </PaperBackground>
+      {error && (
+        <p className={styles["err-msg"]} role="alert">
+          An error occured: {error}
+        </p>
+      )}
     </ModalTemplate>
   );
 }
