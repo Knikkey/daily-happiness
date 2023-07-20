@@ -25,10 +25,10 @@ export default function WelcomeModal() {
               className={styles["music-notes"]}
             />
             <div>
-              <p className={styles.welcome}>
+              <h1 className={styles.welcome}>
                 Happy days,{" "}
                 {currentUser?.isAnonymous ? "friend" : user.displayName}
-              </p>
+              </h1>
               <p className={styles.message}>
                 Click the{" "}
                 <img
