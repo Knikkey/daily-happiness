@@ -38,7 +38,6 @@ export default function Memories({ setState }: boolStateProp) {
         setMemories(memoriesArr);
       } catch (err: any) {
         setError(err.message);
-        console.log(err.message);
       }
     })();
   }, []);
@@ -47,7 +46,6 @@ export default function Memories({ setState }: boolStateProp) {
   useEffect(() => randomMemory(), [memories]);
 
   useEffect(() => {
-    if (memories && memories.length === 0) return;
     if (memories && memories.length === 1) setCurrentMemory(memories[0]);
     if (memories && memories.length > 1) {
       randomMemory();
@@ -66,26 +64,20 @@ export default function Memories({ setState }: boolStateProp) {
   return (
     <ModalTemplate setProp={setState}>
       <PaperBackground formOrDiv="div">
-        <>
-          {!currentMemory && (
-            <p>
-              Looks like you haven't recorded any memories yet. Go record one!
-              :)
-            </p>
-          )}
-          {currentMemory && <p>{currentMemory.memory}</p>}
-          {error && <p>{error}</p>}
-        </>
-        <>
-          {currentMemory && currentMemory.photo && (
-            <PhotoFrame>
-              <img
-                src={currentMemory.photo}
-                alt="photo uploaded with memory"
-              ></img>
-            </PhotoFrame>
-          )}
-        </>
+        <p>
+          {currentMemory
+            ? currentMemory.memory
+            : "Looks like you haven't recorded any memories yet. Go record one! :)"}
+        </p>
+        {error && <p>{error}</p>}
+        {currentMemory?.photo && (
+          <PhotoFrame>
+            <img
+              src={currentMemory.photo}
+              alt="the photo uploaded with this memory"
+            ></img>
+          </PhotoFrame>
+        )}
       </PaperBackground>
       <>
         {currentMemory && memories && memories.length > 1 && (
