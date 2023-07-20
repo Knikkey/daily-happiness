@@ -32,31 +32,37 @@
       height: 100%;
     }
 
-    .cloud--left,
-    .cloud--right {
+    .cloud-btn--left,
+    .cloud-btn--right {
       position: absolute;
-      width: 70%;
       top: -50%;
+      width: 70%;
+      height: auto;
       transition: all 0.5s;
+      padding: 0;
+      border: none;
       cursor: pointer;
-    }
-
-    .cloud--left {
-      left: -55%;
 
       &:hover {
         transform: scale(115%);
       }
+
+      .cloud-img--left,
+      .cloud-img--right {
+        width: 100%;
+      }
+
+      .cloud-img--right {
+        transform: rotateY(180deg);
+      }
     }
 
-    .cloud--right {
-      right: -55%;
-      transform: rotateY(180deg);
+    .cloud-btn--left {
+      left: -60%;
+    }
 
-      &:hover {
-        animation: grow 0.5s forwards;
-        transform: rotateY(180deg) scale(115%);
-      }
+    .cloud-btn--right {
+      right: -40%;
     }
   }
 
@@ -91,7 +97,7 @@
 @media (max-width: 49em) {
   .dashboard-container {
     .guest-banner {
-      font-size: 1rem;
+      font-size: var(--base-font-size);
     }
   }
 }
@@ -103,17 +109,17 @@
     }
 
     .avatar-container {
-      .cloud--left,
-      .cloud--right {
+      .cloud-btn--left,
+      .cloud-btn--right {
         width: 50%;
         top: -35%;
       }
 
-      .cloud--left {
+      .cloud-btn--left {
         left: -20%;
       }
 
-      .cloud--right {
+      .cloud-btn--right {
         right: 0;
       }
     }
