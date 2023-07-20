@@ -4,7 +4,6 @@ import { useAuthContext } from "../../../hooks/useAuthContext";
 import { database } from "../../../firebase/config";
 import { collection, getDocs } from "firebase/firestore";
 //components
-import { boolStateProp } from "../../../Interfaces";
 import PaperBackground from "../../paperBackground/PaperBackground";
 import PhotoFrame from "../../PhotoFrame/PhotoFrame";
 import ModalTemplate from "../modalTemplate/ModalTemplate";
@@ -17,6 +16,11 @@ interface Memories {
   uid: string;
   photo?: string | null;
   id?: string;
+}
+
+interface boolStateProp {
+  state?: boolean;
+  setState: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function Memories({ setState }: boolStateProp) {

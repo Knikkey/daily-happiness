@@ -5,12 +5,16 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 //components
-import { boolStateProp } from "../../../Interfaces";
 import ModalTemplate from "../modalTemplate/ModalTemplate";
 import PaperBackground from "../../paperBackground/PaperBackground";
 import PhotoFrame from "../../PhotoFrame/PhotoFrame";
 //styles
 import styles from "./InputModal.module.scss";
+
+interface boolStateProp {
+  state?: boolean;
+  setState: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 export default function InputModal({ setState }: boolStateProp) {
   const [submittedText, setSubmittedText] = useState<null | string>(null);
