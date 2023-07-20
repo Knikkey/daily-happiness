@@ -2,11 +2,11 @@
 
 .modal {
   @include flex-col--center;
+  @include width-height-100;
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  @include width-height-100;
   animation: open 0.3s forwards;
   z-index: 2;
 
@@ -45,8 +45,10 @@
     &-relative {
       width: 90vw;
       .close-btn {
-        top: 1%;
-        right: 2%;
+        top: 1.5%;
+        right: 2.5%;
+        height: 20px;
+        width: 20px;
       }
     }
   }
