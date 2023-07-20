@@ -63,16 +63,6 @@ export default function Login() {
             />
           </>
         )}
-
-        <label htmlFor="displayName">Display Name:</label>
-        <input
-          id="displayName"
-          type="text"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setDisplayName(e.target.value)
-          }
-        />
-
         <label htmlFor="password">Password:</label>
         <input
           id="password"
