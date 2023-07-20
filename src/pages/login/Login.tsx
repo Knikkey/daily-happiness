@@ -7,11 +7,7 @@ import diary from "./media/diary.webp";
 
 import styles from "./Login.module.scss";
 
-interface Prop {
-  guestSignup?: boolean;
-}
-
-export default function Login({ guestSignup }: Prop) {
+export default function Login() {
   const [signupPage, setSignupPage] = useState(false);
   const [guest, setGuest] = useState(false);
   const [email, setEmail] = useState("");
@@ -30,7 +26,7 @@ export default function Login({ guestSignup }: Prop) {
     setSignupError(null);
     setLoginError(null);
     setIsPending(true);
-    if (signupPage || guestSignup) {
+    if (signupPage) {
       await signup(email, password, displayName);
     }
     if (guest) {
@@ -43,9 +39,7 @@ export default function Login({ guestSignup }: Prop) {
     <div className={styles["login-container"]}>
       <div className={styles["title-container"]}>
         <img src={diary} alt="" />
-        <h1 className={styles.subtitle}>
-          {signupPage || guestSignup ? "Sign up" : "Login"}
-        </h1>
+        <h1 className={styles.subtitle}>{signupPage ? "Sign up" : "Login"}</h1>
       </div>
 
       <form onSubmit={submitHandler}>
@@ -69,18 +63,16 @@ export default function Login({ guestSignup }: Prop) {
             />
           </>
         )}
-        {guestSignup && (
-          <>
-            <label htmlFor="displayName">Display Name:</label>
-            <input
-              id="displayName"
-              type="text"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setDisplayName(e.target.value)
-              }
-            />
-          </>
-        )}
+
+        <label htmlFor="displayName">Display Name:</label>
+        <input
+          id="displayName"
+          type="text"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setDisplayName(e.target.value)
+          }
+        />
+
         <label htmlFor="password">Password:</label>
         <input
           id="password"
@@ -100,48 +92,36 @@ export default function Login({ guestSignup }: Prop) {
 
         {/* **********************LOGIN BUTTONS********************** */}
         <div className={styles["btn-container"]}>
-          {signupPage && (
-            <button type="submit">
-              {isPending ? "Authenticating..." : "Sign up"}
-            </button>
-          )}
-          {guestSignup && (
-            <button type="submit">
-              {isPending ? "Authenticating..." : "Sign up"}
-            </button>
-          )}
-          {!signupPage && !guestSignup && (
-            <button type="submit">
-              {isPending ? "Authenticating..." : "Log in"}
-            </button>
-          )}
-          {!guestSignup && (
-            <button onClick={() => setGuest(true)} className={styles.guest}>
-              {isPending ? "Authenticating..." : "Log in as guest"}
-            </button>
-          )}
+          <button type="submit" disabled={isPending}>
+            {isPending && "Authenticating..."}
+            {signupPage && !isPending && "Sign up"}
+            {!signupPage && !isPending && "Log in"}
+          </button>
+          <button
+            onClick={() => setGuest(true)}
+            className={styles.guest}
+            disabled={isPending}
+          >
+            {isPending ? "Authenticating..." : "Log in as guest"}
+          </button>
         </div>
         {/* **********************ERROR MESSAGES********************** */}
-        {signupError && (
-          <p className={styles.error} role="alert">
-            {signupError}
-          </p>
-        )}
-        {loginError && (
-          <p className={styles.error} role="alert">
-            {loginError}
-          </p>
-        )}
+        {signupError ||
+          (loginError && (
+            <p className={styles.error} role="alert">
+              {signupError ? signupError : loginError}
+            </p>
+          ))}
       </form>
 
       {/* **********************BLUE BUTTONS********************** */}
       <div className={styles["signup-container"]}>
-        {signupPage && !guestSignup && (
+        {signupPage && (
           <button onClick={() => setSignupPage(false)}>
             Return to login page
           </button>
         )}
-        {!signupPage && !guestSignup && (
+        {!signupPage && (
           <>
             <button onClick={() => setSignupPage(true)}>Sign up</button>
             {/* <button>Forgot username</button>
